@@ -1,2 +1,4 @@
-# VKR_publ
-VKR_STBA
+# Выпускная Квалификационная Работа
+
+$ cmake CMakeLists.txt
+$ make
