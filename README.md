@@ -1,4 +1,4 @@
 # Выпускная Квалификационная Работа
 
-$ cmake CMakeLists.txt
+$ cmake CMakeLists.txt  
 $ make
