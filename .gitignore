@@ -1,6 +1,24 @@
 # Prerequisites
 *.d
 
+.DS_Store
+
+CMakeFiles
+
+data/output.xml
+
+Makefile
+
+VKR_publ
+
+CMakeLists.txt.user
+
+cmake_install.cmake
+
+CMakeCache.txt
+
+output.txt
+
 # Compiled Object files
 *.slo
 *.lo
