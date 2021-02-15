@@ -1,0 +1,65 @@
+<Data>
+    <target_task_graph>0</target_task_graph>
+    <task_graph_list>
+        <task_graph id="0" period="200" deadline="200" offset="0">
+            <task id="2" priority="3" depth="0" processor_num="1" num_of_predecessors="0" num_of_successors="1">
+                <BCET>20</BCET>
+                <WCET>20</WCET>
+                <delay>0</delay>
+                <list_of_successors>
+                    <task>3</task>
+                </list_of_successors>
+            </task>
+            <task id="0" priority="5" depth="0" processor_num="0" num_of_predecessors="0" num_of_successors="1">
+                <BCET>20</BCET>
+                <WCET>20</WCET>
+                <delay>0</delay>
+                <list_of_successors>
+                    <task>1</task>
+                </list_of_successors>
+            </task>
+            <task id="1" priority="4" depth="1" processor_num="1" num_of_predecessors="1" num_of_successors="1">
+                <BCET>20</BCET>
+                <WCET>20</WCET>
+                <delay>0</delay>
+                <list_of_predecessors>
+                    <task>0</task>
+                </list_of_predecessors>
+                <list_of_successors>
+                    <task>4</task>
+                </list_of_successors>
+            </task>
+            <task id="3" priority="2" depth="1" processor_num="0" num_of_predecessors="1" num_of_successors="1">
+                <BCET>20</BCET>
+                <WCET>20</WCET>
+                <delay>0</delay>
+                <list_of_predecessors>
+                    <task>2</task>
+                </list_of_predecessors>
+                <list_of_successors>
+                    <task>4</task>
+                </list_of_successors>
+            </task>
+            <task id="4" priority="1" depth="2" processor_num="1" num_of_predecessors="2" num_of_successors="0">
+                <BCET>20</BCET>
+                <WCET>20</WCET>
+                <delay>0</delay>
+                <list_of_predecessors>
+                    <task>1</task>
+                    <task>3</task>
+                </list_of_predecessors>
+            </task>
+        </task_graph>
+    </task_graph_list>
+    <PE_list>
+        <PE id="0">
+            <task graph_id="0" task_id="0"/>
+            <task graph_id="0" task_id="3"/>
+        </PE>
+        <PE id="1">
+            <task graph_id="0" task_id="1"/>
+            <task graph_id="0" task_id="2"/>
+            <task graph_id="0" task_id="4"/>
+        </PE>
+    </PE_list>
+</Data>
