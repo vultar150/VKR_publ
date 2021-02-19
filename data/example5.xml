@@ -14,7 +14,7 @@
         <window start="0" stop="97"/>
         <window start="107" stop="120"/>
     </partition>
-    <tlink src="0" dist="1" delay="0"/>
-    <tlink src="2" dist="3" delay="0"/>
-    <tlink src="3" dist="4" delay="0"/>
+    <tlink src="0" dist="1" bctt="0" wctt="0"/>
+    <tlink src="2" dist="3" bctt="0" wctt="0"/>
+    <tlink src="3" dist="4" bctt="0" wctt="0"/>
 </system>
