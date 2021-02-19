@@ -1,14 +1,14 @@
 <system>
     <partition id="0" proc="0" maj_fr="120">
-        <task index="0" prio="5" bcet="5" wcet="20" period="40" deadline="60" Dep="" Inf="1"/>
+        <task index="0" prio="5" bcet="5" wcet="20" period="40" deadline="40" Dep="" Inf="1"/>
         <window start="0" stop="120"/>
     </partition>
-    <partition id="0" proc="1" maj_fr="120">
+    <partition id="1" proc="1" maj_fr="120">
         <task index="2" prio="3" bcet="5" wcet="5" period="60" deadline="60" Dep="" Inf="3"/>
         <window start="0" stop="120"/>
     </partition>
-    <partition id="0" proc="2" maj_fr="120">
-        <task index="1" prio="4" bcet="10" wcet="10" period="40" deadline="60" Dep="0" Inf=""/>
+    <partition id="2" proc="2" maj_fr="120">
+        <task index="1" prio="4" bcet="10" wcet="10" period="40" deadline="40" Dep="0" Inf=""/>
         <task index="3" prio="2" bcet="10" wcet="10" period="60" deadline="60" Dep="2" Inf="4"/>
         <task index="4" prio="1" bcet="10" wcet="10" period="60" deadline="60" Dep="3" Inf=""/>
         <window start="0" stop="97"/>
