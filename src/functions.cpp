@@ -10,15 +10,14 @@
 void setTasks(XMLNode *xmlNode,
               std::map<int,Task*> & tasks,
               std::map<int, bool> & usd,
-              Processors & processors)
+              Processors & processors,
+              int & maxId)
 {
     XMLError eResult;
 
     XMLElement * pListElement = xmlNode->FirstChildElement("partition");
 
-
     if (pListElement == nullptr) exit(XML_ERROR_PARSING_ELEMENT);
-
 
     while (pListElement != nullptr)
     {
@@ -34,6 +33,7 @@ void setTasks(XMLNode *xmlNode,
             int id, priority, period, BCET, WCET;
             eResult = pListTasks->QueryIntAttribute("index", &id);
             XMLCheckResult(eResult);
+            if (maxId < id) maxId = id;
             eResult = pListTasks->QueryIntAttribute("prio", &priority);
             XMLCheckResult(eResult);
             eResult = pListTasks->QueryIntAttribute("period", &period);
@@ -85,26 +85,38 @@ void addToHPforAll(std::map<int,Task*>& tasks, Task* win, std::vector<int>& ids)
     }
 }
 
-void setLinks(XMLNode *xmlNode, std::map<int,Task*> & tasks)
+void setLinks(XMLNode *xmlNode, std::map<int,Task*> & tasks,
+              std::map<int, bool> & usd, int & maxId)
 {
     XMLError eResult;
 
     XMLElement * pListElement = xmlNode->FirstChildElement("tlink");
 
+    int mf = (*tasks.begin()).second->_major_frame;
+    int messageId = maxId + 1;
+    int period;
+
     while (pListElement != nullptr)
     {
-        int src, dst, delay;
+        int src, dst, bctt, wctt;
         eResult = pListElement->QueryIntAttribute("src", &src);
         XMLCheckResult(eResult);
         eResult = pListElement->QueryIntAttribute("dist", &dst);
         XMLCheckResult(eResult);
-        eResult = pListElement->QueryIntAttribute("delay", &delay);
+        eResult = pListElement->QueryIntAttribute("bctt", &bctt);
         XMLCheckResult(eResult);
+        eResult = pListElement->QueryIntAttribute("wctt", &wctt);
+        XMLCheckResult(eResult);
+        period = tasks[src]->_period;
+        tasks[messageId] = new Task(messageId, mf, -1, period, -1, bctt, wctt);
+        tasks[messageId]->_isMessage = true;
+        usd[messageId] = false;
 
-        tasks[src]->_successors.push_back(tasks[dst]);
-        tasks[dst]->_predecessors.push_back(tasks[src]);
-        tasks[src]->_delays[dst] = delay;
-
+        tasks[src]->_successors.push_back(tasks[messageId]);
+        tasks[messageId]->_predecessors.push_back(tasks[src]);
+        tasks[dst]->_predecessors.push_back(tasks[messageId]);
+        tasks[messageId]->_successors.push_back(tasks[dst]);
+        messageId++;
         pListElement = pListElement->NextSiblingElement("tlink");
     }
 }
@@ -164,8 +176,10 @@ void setInfoTasks(std::map<int, Task*> & tasks,
             setNumGraph(id, tasks, usd, graphNum, graphs);
             graphNum++;
         }
-        TaskPosition taskPosition(task.second->_graphId, id);
-        processors[task.second->_processorNum].push_back(taskPosition);
+        if (!task.second->_isMessage) {
+            TaskPosition taskPosition(task.second->_graphId, id);
+            processors[task.second->_processorNum].push_back(taskPosition);
+        }
     }
 
     for (const auto & task : tasks)
@@ -278,11 +292,13 @@ void copyGraph(std::vector<TaskGraph> & graphs,
     for (const auto & task : graphs[graphId])
     {
         int id = task.second->_id;
-        TaskPosition taskPosition(newGraphId, id);
         taskGraph[id] = new Task(*task.second);
         taskGraph[id]->_instanceNum = instanceNum;
         taskGraph[id]->_graphId = newGraphId;
-        processors[task.second->_processorNum].push_back(taskPosition);
+        if (!task.second->_isMessage) {
+            TaskPosition taskPosition(newGraphId, id);
+            processors[task.second->_processorNum].push_back(taskPosition);
+        }
     }
 
     for (const auto & task : graphs[graphId])
@@ -337,7 +353,9 @@ void assignHigherPrioritySet(std::vector<TaskGraph> & graphs,
     {
         for (auto & task : graph)
         {
-            setHp(graphs, task.second, processors);
+            if (!task.second->_isMessage) {
+                setHp(graphs, task.second, processors);
+            }
         }
     }
 }
@@ -413,12 +431,21 @@ void computeTimeBounds(std::vector<Task*> & sortedQueue)
         std::cerr << "===" << i << "===" << std::endl;
         for (auto & t : sortedQueue)
         {
-            minA(t, changed);
-            minS(t, changed);
-            minF(t, changed);
-            maxA(t, changed);
-            maxS(t, changed);
-            maxF(t, changed);
+            if (t->_isMessage) {
+                minA(t, changed);
+                t->_minS = t->_minA;
+                maxA(t, changed);
+                t->_maxS = t->_maxA;
+                t->_minF = t->_minS + t->_BCET;
+                t->_maxF = t->_maxS + t->_WCET;
+            } else {
+                minA(t, changed);
+                minS(t, changed);
+                minF(t, changed);
+                maxA(t, changed);
+                maxS(t, changed);
+                maxF(t, changed);
+            }
         }
         i++;
         for (auto & t : sortedQueue)
@@ -438,9 +465,8 @@ void minA (Task * t, bool & changed)
     for (auto & p : t->_predecessors) {
         if (p->_minF == -1)
             return;
-        int msgDelay = p->_delays[t->_id];
-        if ((p->_minF + msgDelay) > t->_minA) {
-            t->_minA = p->_minF + msgDelay;
+        if (p->_minF > t->_minA) {
+            t->_minA = p->_minF;
             changed = true;
         }
     }
@@ -456,15 +482,21 @@ void maxA (Task * t, bool & changed)
     for (auto & p : t->_predecessors) {
         if (p->_maxF == -1)
             return;
-        if (t->_processorNum == p->_processorNum)
-        {
-            t->_tPmtor.insert(t->_tPmtor.end(),
-                              p->_tPmtor.begin(),
-                              p->_tPmtor.end());
+        if (p->_isMessage) {
+            if (p->_predecessors.size() != 1) {
+                std::cout << "ERROR: MESSAGE HAVE NOT ONE PRED!\n";
+                exit(1);
+            }
+            Task* mainPredecessor = *(p->_predecessors.begin());
+            if (t->_processorNum == mainPredecessor->_processorNum)
+            {
+                t->_tPmtor.insert(t->_tPmtor.end(),
+                                  mainPredecessor->_tPmtor.begin(),
+                                  mainPredecessor->_tPmtor.end());
+            }
         }
-        int msgDelay = p->_delays[t->_id];
-        if ((p->_maxF + msgDelay) > t->_maxA) {
-            t->_maxA = p->_maxF + msgDelay;
+        if (p->_maxF > t->_maxA) {
+            t->_maxA = p->_maxF;
             changed = true;
         }
     }

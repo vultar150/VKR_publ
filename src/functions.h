@@ -13,11 +13,13 @@ bool comparator(Task * task1, Task * task2);
 void setTasks(XMLNode * xmlNode,
               std::map<int,Task*> & tasks,
               std::map<int, bool> & usd,
-              Processors & processors);
+              Processors & processors,
+              int & maxId);
 
 void addToHPforAll(std::map<int,Task*>& tasks, Task* win, std::vector<int>& ids);
 
-void setLinks(XMLNode *xmlNode, std::map<int,Task*> & tasks);
+void setLinks(XMLNode *xmlNode, std::map<int,Task*> & tasks,
+              std::map<int, bool> & usd, int & maxId);
 
 void setNumGraph(const int & id,
                  std::map<int, Task*> & tasks,

@@ -34,8 +34,9 @@ int main(int argc, char **argv)
     if (xmlNode == nullptr) return XML_ERROR_FILE_READ_ERROR;
 
     std::map<int, bool> usd;
-    setTasks(xmlNode, tasks, usd, processors);
-    setLinks(xmlNode, tasks);
+    int maxId = -1;
+    setTasks(xmlNode, tasks, usd, processors, maxId);
+    setLinks(xmlNode, tasks, usd, maxId);
     tasks[targetTask]->_isTarget = true;
 
 
