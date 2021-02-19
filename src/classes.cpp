@@ -9,14 +9,14 @@ Task::Task(int id, int major_frame, int priority,
            int minA, int maxA, int minS,
            int maxS, int minF, int maxF,
            bool isSource, bool setExcl,
-           bool setExcl2, bool isTarget):
+           bool setExcl2, bool isTarget, bool isMessage):
            _id(id), _major_frame(major_frame), _priority(priority),
            _period(period), _processorNum(processorNum),
            _BCET(BC), _WCET(WC), _instanceNum(instanceNum),
            _depth(depth), _graphId(graphId), _minA(minA),
            _maxA(maxA), _minS(minS), _maxS(maxS), _minF(minF), _maxF(maxF),
            _isSource(isSource), _setExcl(setExcl),
-           _setExcl2(setExcl2), _isTarget(isTarget)
+           _setExcl2(setExcl2), _isTarget(isTarget), _isMessage(isMessage)
 {
 }
 
@@ -38,8 +38,7 @@ Task::Task(const Task & task)
     _setExcl  = task._setExcl;
     _setExcl2 = task._setExcl2;
     _isTarget = task._isTarget;
-
-    _delays = task._delays;
+    _isMessage = task._isMessage;
 }
 
 
@@ -62,8 +61,7 @@ Task & Task::operator=(const Task & task)
         _setExcl  = task._setExcl;
         _setExcl2 = task._setExcl2;
         _isTarget = task._isTarget;
-
-        _delays = task._delays;
+        _isMessage = task._isMessage;
     }
     return *this;
 }
@@ -95,8 +93,9 @@ void Task::outInfo() const
     printf("\t[minA, maxA] = [%d, %d]\n", _minA, _maxA);
     printf("\t[minS, maxS] = [%d, %d]\n", _minS, _maxS);
     printf("\t[minF, maxF] = [%d, %d]\n", _minF, _maxF);
-    printf("\tis source task? %d\n",         _isSource);
-    printf("\tis target task? %d\n",         _isTarget);
+    printf("\tis source task? %d\n",      _isSource);
+    printf("\tis target task? %d\n",      _isTarget);
+    printf("\tis message? %d\n",          _isMessage);
 
     printf("\tSet of tExcl: \n\t");
     for (auto & p : _tExcl)

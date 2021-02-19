@@ -35,20 +35,20 @@ class Task
         bool _isSource;
         bool _setExcl, _setExcl2; // help for compute exclusion set
         bool _isTarget;
+        bool _isMessage;
         std::vector<Task*> _tExcl; // direct pass
         std::vector<Task*> _tExcl2; // reverse pass
         std::vector<Task*> _predecessors;
         std::vector<Task*> _successors;
         std::vector<Task*> _tPmtor;
         std::vector<Task*> _hp;
-        std::map<int, int> _delays;
         Task(int id, int major_frame,  int priority,
              int period, int processorNum, int BC, int WC,
              int instanceNum = 0, int depth = -1, int graphId = -1,
              int minA = -1, int maxA = -1,  int minS = -1,
              int maxS = -1, int minF = -1,  int maxF = -1,
              bool isSource = false, bool setExcl = false,
-             bool setExcl2 = false, bool isTarget = false);
+             bool setExcl2 = false, bool isTarget = false, bool isMessage = false);
         Task(const Task & task);
         Task & operator=(const Task & task);
         bool operator==(const Task & task);
