@@ -4,7 +4,7 @@
 
 // Defining methods for "Task" class
 Task::Task(int id, int major_frame, int priority,
-           int period, int processorNum, int BC, int WC,
+           int period, int processorNum, int BC, int WC, int partitionId,
            int instanceNum, int depth,  int graphId,
            int minA, int maxA, int minS,
            int maxS, int minF, int maxF,
@@ -12,7 +12,7 @@ Task::Task(int id, int major_frame, int priority,
            bool setExcl2, bool isTarget, bool isMessage):
            _id(id), _major_frame(major_frame), _priority(priority),
            _period(period), _processorNum(processorNum),
-           _BCET(BC), _WCET(WC), _instanceNum(instanceNum),
+           _BCET(BC), _WCET(WC), _partitionId(partitionId), _instanceNum(instanceNum),
            _depth(depth), _graphId(graphId), _minA(minA),
            _maxA(maxA), _minS(minS), _maxS(maxS), _minF(minF), _maxF(maxF),
            _isSource(isSource), _setExcl(setExcl),
@@ -27,6 +27,7 @@ Task::Task(const Task & task)
     _priority = task._priority; _period = task._period;
     _processorNum = task._processorNum;
     _BCET  = task._BCET;  _WCET = task._WCET;
+    _partitionId = task._partitionId;
     _instanceNum = task._instanceNum;
     _depth = task._depth; _graphId = task._graphId;
 
@@ -50,6 +51,7 @@ Task & Task::operator=(const Task & task)
         _priority = task._priority; _period = task._period;
         _processorNum = task._processorNum;
         _BCET  = task._BCET;  _WCET = task._WCET;
+        _partitionId = task._partitionId;
         _instanceNum = task._instanceNum;
         _depth = task._depth; _graphId = task._graphId;
 

@@ -27,6 +27,7 @@ class Task
         int _id, _major_frame, _priority;
         int _period, _processorNum;
         int _BCET,  _WCET;
+        int _partitionId;
         int _instanceNum;
         int _depth, _graphId;
         int _minA,  _maxA;
@@ -43,7 +44,7 @@ class Task
         std::vector<Task*> _tPmtor;
         std::vector<Task*> _hp;
         Task(int id, int major_frame,  int priority,
-             int period, int processorNum, int BC, int WC,
+             int period, int processorNum, int BC, int WC, int partitionId,
              int instanceNum = 0, int depth = -1, int graphId = -1,
              int minA = -1, int maxA = -1,  int minS = -1,
              int maxS = -1, int minF = -1,  int maxF = -1,

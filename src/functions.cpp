@@ -21,7 +21,9 @@ void setTasks(XMLNode *xmlNode,
 
     while (pListElement != nullptr)
     {
-        int processorNum, major_frame;
+        int partitionId, processorNum, major_frame;
+        eResult = pListElement->QueryIntAttribute("id", &partitionId);
+        XMLCheckResult(eResult);
         eResult = pListElement->QueryIntAttribute("proc", &processorNum);
         XMLCheckResult(eResult);
         eResult = pListElement->QueryIntAttribute("maj_fr", &major_frame);
@@ -31,7 +33,7 @@ void setTasks(XMLNode *xmlNode,
         std::vector<int> ids;
         while (pListTasks != nullptr) {
             int id, priority, period, BCET, WCET;
-            eResult = pListTasks->QueryIntAttribute("index", &id);
+            eResult = pListTasks->QueryIntAttribute("id", &id);
             XMLCheckResult(eResult);
             if (maxId < id) maxId = id;
             eResult = pListTasks->QueryIntAttribute("prio", &priority);
@@ -43,7 +45,8 @@ void setTasks(XMLNode *xmlNode,
             eResult = pListTasks->QueryIntAttribute("wcet", &WCET);
             XMLCheckResult(eResult);
             usd[id] = false;
-            tasks[id] = new Task(id, major_frame, priority, period, processorNum, BCET, WCET);
+            tasks[id] = new Task(id, major_frame, priority, period, 
+                                 processorNum, BCET, WCET, partitionId);
             ids.push_back(id);
             pListTasks = pListTasks->NextSiblingElement("task");
         }
@@ -57,7 +60,7 @@ void setTasks(XMLNode *xmlNode,
             XMLCheckResult(eResult);
             int ET = start - left;
             if (ET > 0) {
-                Task* win = new Task(0, major_frame, 0, 0, processorNum, 0, 0);
+                Task* win = new Task(0, major_frame, 0, 0, processorNum, 0, 0, -1);
                 win->_minA = win->_maxA = win->_minS = win->_maxS = left;
                 win->_minF = win->_maxF = start;
                 win->_BCET = win->_WCET = ET;
@@ -68,7 +71,7 @@ void setTasks(XMLNode *xmlNode,
         }
         int ET = major_frame - left;
         if (ET > 0) {
-            Task* win = new Task(0, major_frame, 0, 0, processorNum, 0, 0);
+            Task* win = new Task(0, major_frame, 0, 0, processorNum, 0, 0, -1);
             win->_minA = win->_maxA = win->_minS = win->_maxS = left;
             win->_minF = win->_maxF = major_frame;
             win->_BCET = win->_WCET = ET;
@@ -108,7 +111,7 @@ void setLinks(XMLNode *xmlNode, std::map<int,Task*> & tasks,
         eResult = pListElement->QueryIntAttribute("wctt", &wctt);
         XMLCheckResult(eResult);
         period = tasks[src]->_period;
-        tasks[messageId] = new Task(messageId, mf, -1, period, -1, bctt, wctt);
+        tasks[messageId] = new Task(messageId, mf, -1, period, -1, bctt, wctt, -1);
         tasks[messageId]->_isMessage = true;
         usd[messageId] = false;
 
@@ -393,7 +396,7 @@ void setHp(std::vector<TaskGraph> & graphs,
         {
             continue;
         }
-        else
+        else if (task->_partitionId == taskOnSimilarProc->_partitionId)
         {
             task->_hp.push_back(taskOnSimilarProc);
         }
