@@ -1,9 +1,9 @@
 <system>
-    <task index="1" maj_fr="200" prio="5" bcet="10" wcet="30" period="200" deadline="200" proc="0" Dep="" Inf="2,3"/>
-    <task index="2" maj_fr="200" prio="4" bcet="10" wcet="10" period="200" deadline="200" proc="0" Dep="1,5" Inf=""/>
-    <task index="3" maj_fr="200" prio="3" bcet="5" wcet="5" period="200" deadline="200" proc="0" Dep="1" Inf="4"/>
-    <task index="4" maj_fr="200" prio="2" bcet="5" wcet="10" period="200" deadline="200" proc="0" Dep="3" Inf=""/>
-    <task index="5" maj_fr="200" prio="1" bcet="5" wcet="5" period="200" deadline="200" proc="0" Dep="" Inf="2"/>
+    <task id="1" maj_fr="200" prio="5" bcet="10" wcet="30" period="200" deadline="200" proc="0" Dep="" Inf="2,3"/>
+    <task id="2" maj_fr="200" prio="4" bcet="10" wcet="10" period="200" deadline="200" proc="0" Dep="1,5" Inf=""/>
+    <task id="3" maj_fr="200" prio="3" bcet="5" wcet="5" period="200" deadline="200" proc="0" Dep="1" Inf="4"/>
+    <task id="4" maj_fr="200" prio="2" bcet="5" wcet="10" period="200" deadline="200" proc="0" Dep="3" Inf=""/>
+    <task id="5" maj_fr="200" prio="1" bcet="5" wcet="5" period="200" deadline="200" proc="0" Dep="" Inf="2"/>
     <tlink src="5" dist="2" delay="0"/>
     <tlink src="1" dist="2" delay="0"/>
     <tlink src="1" dist="3" delay="0"/>
