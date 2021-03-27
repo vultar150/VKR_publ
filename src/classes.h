@@ -2,7 +2,7 @@
 #define CLASSES_H
 
 #include <vector>
-#include <map>
+#include <unordered_map>
 
 #ifndef XMLCheckResult
     #define XMLCheckResult(a_eResult) if (a_eResult != XML_SUCCESS) { printf("Error: %i\n", a_eResult); exit(a_eResult); }
@@ -59,7 +59,7 @@ class Task
 };
 
 
-class TaskGraph: public std::map<int,Task*>
+class TaskGraph: public std::unordered_map<int,Task*>
 {
     public:
         int _id;
@@ -72,7 +72,7 @@ class TaskGraph: public std::map<int,Task*>
 };
 
 
-class Processors: public std::map<int, std::vector<TaskPosition> >
+class Processors: public std::unordered_map<int, std::vector<TaskPosition> >
 {
     public:
         void outInfo() const;

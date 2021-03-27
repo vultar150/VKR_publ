@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cstdio>
-#include <map>
+#include <unordered_map>
 #include <algorithm>
 #include <cmath>
 #include <cstdlib>
@@ -19,7 +19,7 @@ int main(int argc, char **argv)
 
     XMLError eResult;
     std::vector<TaskGraph> graphs;
-    std::map<int,Task*> tasks;
+    std::unordered_map<int,Task*> tasks;
     std::vector<Task*> sortedQueue;
     Processors processors;
     XMLDocument xmlDocument;
@@ -33,7 +33,7 @@ int main(int argc, char **argv)
     XMLNode * xmlNode = xmlDocument.FirstChildElement(); // root tag
     if (xmlNode == nullptr) return XML_ERROR_FILE_READ_ERROR;
 
-    std::map<int, bool> usd;
+    std::unordered_map<int, bool> usd;
     int maxId = -1;
     setTasks(xmlNode, tasks, usd, processors, maxId);
     setLinks(xmlNode, tasks, usd, maxId);

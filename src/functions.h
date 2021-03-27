@@ -9,32 +9,32 @@ using namespace tinyxml2;
 
 // prototypes of functions
 void setTasks(XMLNode * xmlNode,
-              std::map<int,Task*> & tasks,
-              std::map<int, bool> & usd,
+              std::unordered_map<int,Task*> & tasks,
+              std::unordered_map<int, bool> & usd,
               Processors & processors,
               int & maxId);
 
-void addToHPforAll(std::map<int,Task*>& tasks, Task* win, std::vector<int>& ids);
+void addToHPforAll(std::unordered_map<int,Task*>& tasks, Task* win, std::vector<int>& ids);
 
-void setLinks(XMLNode *xmlNode, std::map<int,Task*> & tasks,
-              std::map<int, bool> & usd, int & maxId);
+void setLinks(XMLNode *xmlNode, std::unordered_map<int,Task*> & tasks,
+              std::unordered_map<int, bool> & usd, int & maxId);
 
 void setNumGraph(const int & id,
-                 std::map<int, Task*> & tasks,
-                 std::map<int, bool> & usd,
+                 std::unordered_map<int, Task*> & tasks,
+                 std::unordered_map<int, bool> & usd,
                  const int & graphNum,
                  std::vector<TaskGraph> & graphs);
 
-void setInfoTasks(std::map<int, Task*> & tasks,
-                  std::map<int, bool> & usd,
+void setInfoTasks(std::unordered_map<int, Task*> & tasks,
+                  std::unordered_map<int, bool> & usd,
                   std::vector<TaskGraph> & graphs,
                   Processors & processors);
 
-void setExcl(std::map<int, Task*> & tasks,
+void setExcl(std::unordered_map<int, Task*> & tasks,
              Task * task,
              int depth);
 
-void setExcl2(std::map<int, Task*> & tasks, Task * task);
+void setExcl2(std::unordered_map<int, Task*> & tasks, Task * task);
 
 void expandGraphs(std::vector<TaskGraph> & graphs,
                   int & major_frame,
@@ -92,7 +92,7 @@ void clearSetsPmtor(std::vector<TaskGraph> & graphs);
 int getWCRT(std::vector<TaskGraph> & graphs, int graphId, int taskId);
 
 void setWCRTs(std::vector<TaskGraph> & graphs, 
-              std::map<int,Task*> & tasks);
+              std::unordered_map<int,Task*> & tasks);
 
 void firstInitialization(std::vector<TaskGraph> & graphs, Processors & processors, std::vector<Task*> & sortedQueue);
 

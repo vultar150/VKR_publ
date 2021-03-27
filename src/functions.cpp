@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <map>
+#include <unordered_map>
 #include <algorithm>
 #include <cmath>
 
@@ -8,8 +8,8 @@
 
 
 void setTasks(XMLNode *xmlNode,
-              std::map<int,Task*> & tasks,
-              std::map<int, bool> & usd,
+              std::unordered_map<int,Task*> & tasks,
+              std::unordered_map<int, bool> & usd,
               Processors & processors,
               int & maxId) {
     XMLError eResult;
@@ -80,14 +80,14 @@ void setTasks(XMLNode *xmlNode,
     }
 }
 
-void addToHPforAll(std::map<int,Task*>& tasks, Task* win, std::vector<int>& ids) {
+void addToHPforAll(std::unordered_map<int,Task*>& tasks, Task* win, std::vector<int>& ids) {
     for (const auto& id : ids) {
         tasks[id]->_hp.push_back(win);
     }
 }
 
-void setLinks(XMLNode *xmlNode, std::map<int,Task*> & tasks,
-              std::map<int, bool> & usd, int & maxId) {
+void setLinks(XMLNode *xmlNode, std::unordered_map<int,Task*> & tasks,
+              std::unordered_map<int, bool> & usd, int & maxId) {
     XMLError eResult;
 
     XMLElement * pListElement = xmlNode->FirstChildElement("tlink");
@@ -128,8 +128,8 @@ void setLinks(XMLNode *xmlNode, std::map<int,Task*> & tasks,
 
 
 void setNumGraph(const int & id,
-                 std::map<int, Task*> & tasks,
-                 std::map<int, bool> & usd,
+                 std::unordered_map<int, Task*> & tasks,
+                 std::unordered_map<int, bool> & usd,
                  const int & graphNum,
                  std::vector<TaskGraph> & graphs) {
     usd[id] = true;
@@ -151,8 +151,8 @@ void setNumGraph(const int & id,
 }
 
 
-void setInfoTasks(std::map<int, Task*> & tasks,
-                  std::map<int, bool> & usd,
+void setInfoTasks(std::unordered_map<int, Task*> & tasks,
+                  std::unordered_map<int, bool> & usd,
                   std::vector<TaskGraph> & graphs,
                   Processors & processors) {
     int graphNum = 0;
@@ -185,7 +185,7 @@ void setInfoTasks(std::map<int, Task*> & tasks,
 }
 
 
-void setExcl(std::map<int, Task*> & tasks, Task * task, int depth) {
+void setExcl(std::unordered_map<int, Task*> & tasks, Task * task, int depth) {
     if (task->_setExcl) {
         if (task->_depth < depth) {
             task->_depth = depth;
@@ -211,7 +211,7 @@ void setExcl(std::map<int, Task*> & tasks, Task * task, int depth) {
 }
 
 
-void setExcl2(std::map<int, Task*> & tasks, Task * task) {
+void setExcl2(std::unordered_map<int, Task*> & tasks, Task * task) {
     if (task->_setExcl2) {
         return;
     }
@@ -590,7 +590,7 @@ int getWCRT(std::vector<TaskGraph> & graphs, int graphId, int taskId) {
 
 
 void setWCRTs(std::vector<TaskGraph> & graphs, 
-              std::map<int,Task*> & tasks) {
+              std::unordered_map<int,Task*> & tasks) {
     for (auto & task : tasks) {
         if (not task.second->_isMessage) {
             int graphId = task.second->_graphId, taskId = task.second->_id;
