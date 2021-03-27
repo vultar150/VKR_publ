@@ -59,10 +59,14 @@ int main(int argc, char **argv)
     fout << std::endl;
     fout.close();
 
-    for (auto & task : tasks) {
-        if (not task.second->_isMessage) {
-            task.second->outInfo();
+    for (auto & graph : graphs) {
+        if (graph._instanceNum > 0) break;
+        for (auto & task : graph) {
+            if (not task.second->_isMessage) {
+                task.second->outInfo();
+            }
         }
+        std::cout << std::endl;
     }
 
     std::cout << std::endl;
