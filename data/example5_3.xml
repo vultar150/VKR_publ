@@ -13,7 +13,7 @@
         <task id="4" prio="1" bcet="10" wcet="10" period="60" deadline="60"/>
         <window start="0" stop="60"/>
     </partition>
-    <tlink src="0" dist="1" bctt="10" wctt="15"/>
+    <tlink src="0" dist="1" bctt="0" wctt="0"/>
     <tlink src="2" dist="3" bctt="0" wctt="0"/>
-    <tlink src="3" dist="4" bctt="24" wctt="25"/>
+    <tlink src="3" dist="4" bctt="0" wctt="0"/>
 </system>

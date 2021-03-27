@@ -1,11 +1,14 @@
 <system>
-    <task id="1" maj_fr="200" prio="5" bcet="10" wcet="30" period="200" deadline="200" proc="0" Dep="" Inf="2,3"/>
-    <task id="2" maj_fr="200" prio="4" bcet="10" wcet="10" period="200" deadline="200" proc="0" Dep="1,5" Inf=""/>
-    <task id="3" maj_fr="200" prio="3" bcet="5" wcet="5" period="200" deadline="200" proc="0" Dep="1" Inf="4"/>
-    <task id="4" maj_fr="200" prio="2" bcet="5" wcet="10" period="200" deadline="200" proc="0" Dep="3" Inf=""/>
-    <task id="5" maj_fr="200" prio="1" bcet="5" wcet="5" period="200" deadline="200" proc="0" Dep="" Inf="2"/>
-    <tlink src="5" dist="2" delay="0"/>
-    <tlink src="1" dist="2" delay="0"/>
-    <tlink src="1" dist="3" delay="0"/>
-    <tlink src="3" dist="4" delay="0"/>
+    <partition id="0" proc="0" maj_fr="80">
+        <task id="1" prio="5" bcet="10" wcet="30" period="80" deadline="80"/>
+        <task id="2" prio="4" bcet="10" wcet="10" period="80" deadline="80"/>
+        <task id="3" prio="3" bcet="5" wcet="5" period="80" deadline="80"/>
+        <task id="4" prio="2" bcet="5" wcet="10" period="80" deadline="80"/>
+        <task id="5" prio="1" bcet="5" wcet="5" period="80" deadline="80"/>
+        <window start="0" stop="80"/>
+    </partition>
+    <tlink src="1" dist="2" bctt="0" wctt="0"/>
+    <tlink src="1" dist="3" bctt="0" wctt="0"/>
+    <tlink src="5" dist="2" bctt="0" wctt="0"/>
+    <tlink src="3" dist="4" bctt="0" wctt="0"/>
 </system>

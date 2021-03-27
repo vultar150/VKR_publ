@@ -1,25 +1,9 @@
-<Data>
-    <target_task_graph>1</target_task_graph>
-    <task_graph_list>
-        <task_graph id="0" period="10" deadline="10" offset="0">
-            <task id="0" priority="2" depth="0" processor_num="1" num_of_predecessors="0" num_of_successors="0">
-                <BCET>4</BCET>
-                <WCET>8</WCET>
-                <delay>0</delay>
-            </task>
-        </task_graph>
-        <task_graph id="1" period="100" deadline="100" offset="0">
-            <task id="1" priority="1" depth="0" processor_num="1" num_of_predecessors="0" num_of_successors="0">
-                <BCET>80</BCET>
-                <WCET>85</WCET>
-                <delay>0</delay>
-            </task>
-        </task_graph>
-    </task_graph_list>
-    <PE_list>
-        <PE id="1">
-            <task graph_id="0" task_id="0"/>
-            <task graph_id="1" task_id="1"/>
-        </PE>
-    </PE_list>
-</Data>
+<system>
+    <partition id="0" proc="0" maj_fr="40">
+        <task id="0" prio="1" bcet="10" wcet="10" period="40" deadline="40"/>
+        <task id="1" prio="0" bcet="20" wcet="20" period="40" deadline="40"/>
+        <window start="0" stop="29"/>
+        <!-- <window start="35" stop="36"/> -->
+    </partition>
+    <tlink src="0" dist="1" bctt="0" wctt="0"/>
+</system>
