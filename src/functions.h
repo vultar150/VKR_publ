@@ -8,8 +8,6 @@ using namespace tinyxml2;
 
 
 // prototypes of functions
-bool comparator(Task * task1, Task * task2);
-
 void setTasks(XMLNode * xmlNode,
               std::map<int,Task*> & tasks,
               std::map<int, bool> & usd,
@@ -91,7 +89,10 @@ bool checkPmtor(Task * task1, Task * task2);
 
 void clearSetsPmtor(std::vector<TaskGraph> & graphs);
 
-int getWCRT(std::vector<TaskGraph> & graphs, int targetTask);
+int getWCRT(std::vector<TaskGraph> & graphs, int graphId, int taskId);
+
+void setWCRTs(std::vector<TaskGraph> & graphs, 
+              std::map<int,Task*> & tasks);
 
 void firstInitialization(std::vector<TaskGraph> & graphs, Processors & processors, std::vector<Task*> & sortedQueue);
 

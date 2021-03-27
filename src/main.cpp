@@ -47,25 +47,29 @@ int main(int argc, char **argv)
     sortTasks(graphs, sortedQueue);
     assignHigherPrioritySet(graphs, processors);
     computeTimeBounds(sortedQueue);
-    int WCRT = getWCRT(graphs, targetTask);
+    setWCRTs(graphs, tasks);
 
     time = clock() - time;
 
     std::ofstream fout("output.txt", std::ios::app);
-
-    fout << std::endl << std::endl;
-    fout << "WCRT = " << WCRT << std::endl;
+    fout << "WCRT = " << tasks[targetTask]->_WCRT << std::endl;
     fout << "Period = " << tasks[targetTask]->_period << std::endl;
     fout << "Task num = " << targetTask << std::endl;
     fout << "Time = " << static_cast<float>(time)/CLOCKS_PER_SEC << std::endl;
+    fout << std::endl;
     fout.close();
 
-    printf("\n\n");
-    printf("WCRT = %d\n", WCRT);
-    printf("Period = %d\n", tasks[targetTask]->_period);
-    printf("Task num = %d\n", targetTask);
-    printf("Time = %f\n", static_cast<float>(time)/CLOCKS_PER_SEC);
+    for (auto & task : tasks) {
+        if (not task.second->_isMessage) {
+            task.second->outInfo();
+        }
+    }
 
+    std::cout << std::endl;
+    std::cout << "WCRT = " << tasks[targetTask]->_WCRT << std::endl;
+    std::cout << "Period = " << tasks[targetTask]->_period << std::endl;
+    std::cout << "Task num = " << targetTask << std::endl;
+    std::cout << "Time = " << static_cast<float>(time)/CLOCKS_PER_SEC << std::endl;
     /*
     for (const auto & q : sortedQueue)
     {

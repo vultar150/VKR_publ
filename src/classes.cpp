@@ -83,49 +83,50 @@ bool Task::operator==(const Task & task)
 
 void Task::outInfo() const
 {
-    printf("\tid          = %d\n",        _id);
-    printf("\tmajor_frame = %d\n",        _major_frame);
-    printf("\tpriority    = %d\n",        _priority);
-    printf("\tperiod      = %d\n",        _period);
-    printf("\tgraph id    = %d\n",        _graphId);
-    printf("\tdepth       = %d\n",        _depth);
-    printf("\tprocessor number = %d\n",   _processorNum);
-    printf("\tinstance number = %d\n",    _instanceNum);
-    printf("\t[BCET, WCET] = [%d, %d]\n", _BCET, _WCET);
-    printf("\t[minA, maxA] = [%d, %d]\n", _minA, _maxA);
-    printf("\t[minS, maxS] = [%d, %d]\n", _minS, _maxS);
-    printf("\t[minF, maxF] = [%d, %d]\n", _minF, _maxF);
-    printf("\tis source task? %d\n",      _isSource);
-    printf("\tis target task? %d\n",      _isTarget);
-    printf("\tis message? %d\n",          _isMessage);
+    printf("t%d,%d: R = %d, T = %d\n", _graphId, _id, _WCRT, _period);
+    // printf("\tid          = %d\n",        _id);
+    // printf("\tmajor_frame = %d\n",        _major_frame);
+    // printf("\tpriority    = %d\n",        _priority);
+    // printf("\tperiod      = %d\n",        _period);
+    // printf("\tgraph id    = %d\n",        _graphId);
+    // printf("\tdepth       = %d\n",        _depth);
+    // printf("\tprocessor number = %d\n",   _processorNum);
+    // printf("\tinstance number = %d\n",    _instanceNum);
+    // printf("\t[BCET, WCET] = [%d, %d]\n", _BCET, _WCET);
+    // printf("\t[minA, maxA] = [%d, %d]\n", _minA, _maxA);
+    // printf("\t[minS, maxS] = [%d, %d]\n", _minS, _maxS);
+    // printf("\t[minF, maxF] = [%d, %d]\n", _minF, _maxF);
+    // printf("\tis source task? %d\n",      _isSource);
+    // printf("\tis target task? %d\n",      _isTarget);
+    // printf("\tis message? %d\n",          _isMessage);
 
-    printf("\tSet of tExcl: \n\t");
-    for (auto & p : _tExcl)
-        std::cout << p->_id << '\t';
+    // printf("\tSet of tExcl: \n\t");
+    // for (auto & p : _tExcl)
+    //     std::cout << p->_id << '\t';
 
-    printf("\n");
+    // printf("\n");
 
-    printf("\tlist of predecessors: \n\t");
-    for (auto & p : _predecessors)
-        std::cout << p->_id << '\t';
-    printf("\n");
+    // printf("\tlist of predecessors: \n\t");
+    // for (auto & p : _predecessors)
+    //     std::cout << p->_id << '\t';
+    // printf("\n");
 
-    printf("\tlist of successors: \n\t");
-    for (auto & p : _successors)
-        std::cout << p->_id << '\t';
-    printf("\n");
+    // printf("\tlist of successors: \n\t");
+    // for (auto & p : _successors)
+    //     std::cout << p->_id << '\t';
+    // printf("\n");
 
-    printf("\tSet of tPmtor: \n\t");
-    for (auto & p : _tPmtor)
-        std::cout << "[graph: " << p->_graphId << ',' << "task: " << p->_id << ']' << '\t';
-    printf("\n");
+    // printf("\tSet of tPmtor: \n\t");
+    // for (auto & p : _tPmtor)
+    //     std::cout << "[graph: " << p->_graphId << ',' << "task: " << p->_id << ']' << '\t';
+    // printf("\n");
 
-    printf("\tSet of higher priority task: \n\t");
-    for (auto & p : _hp)
-        std::cout << "[graph: " << p->_graphId << ',' << "task: " << p->_id << ']' << '\t';
-    printf("\n");
+    // printf("\tSet of higher priority task: \n\t");
+    // for (auto & p : _hp)
+    //     std::cout << "[graph: " << p->_graphId << ',' << "task: " << p->_id << ']' << '\t';
+    // printf("\n");
 
-    printf("\n\n");
+    // printf("\n\n");
 }
 // end Defining methods for "Task" class
 

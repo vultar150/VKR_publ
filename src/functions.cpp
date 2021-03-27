@@ -11,16 +11,14 @@ void setTasks(XMLNode *xmlNode,
               std::map<int,Task*> & tasks,
               std::map<int, bool> & usd,
               Processors & processors,
-              int & maxId)
-{
+              int & maxId) {
     XMLError eResult;
 
     XMLElement * pListElement = xmlNode->FirstChildElement("partition");
 
     if (pListElement == nullptr) exit(XML_ERROR_PARSING_ELEMENT);
 
-    while (pListElement != nullptr)
-    {
+    while (pListElement != nullptr) {
         int partitionId, processorNum, major_frame;
         eResult = pListElement->QueryIntAttribute("id", &partitionId);
         XMLCheckResult(eResult);
@@ -89,8 +87,7 @@ void addToHPforAll(std::map<int,Task*>& tasks, Task* win, std::vector<int>& ids)
 }
 
 void setLinks(XMLNode *xmlNode, std::map<int,Task*> & tasks,
-              std::map<int, bool> & usd, int & maxId)
-{
+              std::map<int, bool> & usd, int & maxId) {
     XMLError eResult;
 
     XMLElement * pListElement = xmlNode->FirstChildElement("tlink");
@@ -99,8 +96,7 @@ void setLinks(XMLNode *xmlNode, std::map<int,Task*> & tasks,
     int messageId = maxId + 1;
     int period;
 
-    while (pListElement != nullptr)
-    {
+    while (pListElement != nullptr) {
         int src, dst, bctt, wctt;
         eResult = pListElement->QueryIntAttribute("src", &src);
         XMLCheckResult(eResult);
@@ -110,16 +106,22 @@ void setLinks(XMLNode *xmlNode, std::map<int,Task*> & tasks,
         XMLCheckResult(eResult);
         eResult = pListElement->QueryIntAttribute("wctt", &wctt);
         XMLCheckResult(eResult);
-        period = tasks[src]->_period;
-        tasks[messageId] = new Task(messageId, mf, -1, period, -1, bctt, wctt, -1);
-        tasks[messageId]->_isMessage = true;
-        usd[messageId] = false;
 
-        tasks[src]->_successors.push_back(tasks[messageId]);
-        tasks[messageId]->_predecessors.push_back(tasks[src]);
-        tasks[dst]->_predecessors.push_back(tasks[messageId]);
-        tasks[messageId]->_successors.push_back(tasks[dst]);
-        messageId++;
+        if (wctt > 0) {
+            period = tasks[src]->_period;
+            tasks[messageId] = new Task(messageId, mf, -1, period, -1, bctt, wctt, -1);
+            tasks[messageId]->_isMessage = true;
+            usd[messageId] = false;
+
+            tasks[src]->_successors.push_back(tasks[messageId]);
+            tasks[messageId]->_predecessors.push_back(tasks[src]);
+            tasks[dst]->_predecessors.push_back(tasks[messageId]);
+            tasks[messageId]->_successors.push_back(tasks[dst]);
+            messageId++;
+        } else {
+            tasks[src]->_successors.push_back(tasks[dst]);
+            tasks[dst]->_predecessors.push_back(tasks[src]);
+        }
         pListElement = pListElement->NextSiblingElement("tlink");
     }
 }
@@ -129,26 +131,20 @@ void setNumGraph(const int & id,
                  std::map<int, Task*> & tasks,
                  std::map<int, bool> & usd,
                  const int & graphNum,
-                 std::vector<TaskGraph> & graphs)
-{
+                 std::vector<TaskGraph> & graphs) {
     usd[id] = true;
     tasks[id]->_graphId = graphNum;
     graphs[graphNum][id] = tasks[id];
-    if (tasks[id]->_isTarget)
-    {
+    if (tasks[id]->_isTarget) {
         graphs[graphNum]._isTarget = true;
     }
-    for (auto & successor : tasks[id]->_successors)
-    {
-        if (!usd[successor->_id])
-        {
+    for (auto & successor : tasks[id]->_successors) {
+        if (!usd[successor->_id]) {
             setNumGraph(successor->_id, tasks, usd, graphNum, graphs);
         }
     }
-    for (auto & predecessor : tasks[id]->_predecessors)
-    {
-        if (!usd[predecessor->_id])
-        {
+    for (auto & predecessor : tasks[id]->_predecessors) {
+        if (!usd[predecessor->_id]) {
             setNumGraph(predecessor->_id, tasks, usd, graphNum, graphs);
         }
     }
@@ -158,23 +154,18 @@ void setNumGraph(const int & id,
 void setInfoTasks(std::map<int, Task*> & tasks,
                   std::map<int, bool> & usd,
                   std::vector<TaskGraph> & graphs,
-                  Processors & processors)
-{
+                  Processors & processors) {
     int graphNum = 0;
-    for (auto & task : tasks)
-    {
+    for (auto & task : tasks) {
         int id = task.second->_id;
-        if (task.second->_predecessors.empty())
-        {
+        if (task.second->_predecessors.empty()) {
             task.second->_isSource = true;
             setExcl(tasks, task.second, 0);
         }
-        if (task.second->_successors.empty())
-        {
+        if (task.second->_successors.empty()) {
             setExcl2(tasks, task.second);
         }
-        if (!usd[id])
-        {
+        if (!usd[id]) {
             graphs.push_back(TaskGraph(graphNum, task.second->_period));
             setNumGraph(id, tasks, usd, graphNum, graphs);
             graphNum++;
@@ -185,8 +176,7 @@ void setInfoTasks(std::map<int, Task*> & tasks,
         }
     }
 
-    for (const auto & task : tasks)
-    {
+    for (const auto & task : tasks) {
         task.second->_tExcl.insert(task.second->_tExcl.end(),
                                    task.second->_tExcl2.begin(),
                                    task.second->_tExcl2.end());
@@ -195,29 +185,22 @@ void setInfoTasks(std::map<int, Task*> & tasks,
 }
 
 
-void setExcl(std::map<int, Task*> & tasks, Task * task, int depth)
-{
-    if (task->_setExcl)
-    {
-        if (task->_depth < depth)
-        {
+void setExcl(std::map<int, Task*> & tasks, Task * task, int depth) {
+    if (task->_setExcl) {
+        if (task->_depth < depth) {
             task->_depth = depth;
-            for (const auto & successor : task->_successors)
-            {
+            for (const auto & successor : task->_successors) {
                 setExcl(tasks, successor, depth+1);
             }
         }
-        else
-        {
+        else {
             return;
         }
     }
-    else
-    {
+    else {
         task->_depth = depth;
         task->_setExcl = true;
-        for (const auto & successor : task->_successors)
-        {
+        for (const auto & successor : task->_successors) {
             task->_tExcl.push_back(successor);
             setExcl(tasks, successor, depth+1);
             task->_tExcl.insert(task->_tExcl.end(),
@@ -228,17 +211,13 @@ void setExcl(std::map<int, Task*> & tasks, Task * task, int depth)
 }
 
 
-void setExcl2(std::map<int, Task*> & tasks, Task * task)
-{
-    if (task->_setExcl2)
-    {
+void setExcl2(std::map<int, Task*> & tasks, Task * task) {
+    if (task->_setExcl2) {
         return;
     }
-    else
-    {
+    else {
         task->_setExcl2 = true;
-        for (const auto & predecessor : task->_predecessors)
-        {
+        for (const auto & predecessor : task->_predecessors) {
             task->_tExcl2.push_back(predecessor);
             setExcl2(tasks, predecessor);
             task->_tExcl2.insert(task->_tExcl2.end(),
@@ -251,12 +230,10 @@ void setExcl2(std::map<int, Task*> & tasks, Task * task)
 
 void expandGraphs(std::vector<TaskGraph> & graphs,
                   int & major_frame,
-                  Processors & processors)
-{
+                  Processors & processors) {
     int size = graphs.size();
 
-    for (int i = 0; i < size; i++)
-    {
+    for (int i = 0; i < size; i++) {
         int expansionFactor = major_frame / int(graphs[i]._period);
         expandGraph(graphs, i, expansionFactor, processors);
     }
@@ -266,10 +243,8 @@ void expandGraphs(std::vector<TaskGraph> & graphs,
 void expandGraph(std::vector<TaskGraph> & graphs,
                  int & graphId,
                  int & expansionFactor,
-                 Processors & processors)
-{
-    for (int instanceNum = 1; instanceNum < expansionFactor; instanceNum++)
-    {
+                 Processors & processors) {
+    for (int instanceNum = 1; instanceNum < expansionFactor; instanceNum++) {
         int newGraphId = graphs.size();
         copyGraph(graphs,
                   graphId,
@@ -284,16 +259,14 @@ void copyGraph(std::vector<TaskGraph> & graphs,
                int & graphId,
                int & newGraphId,
                int & instanceNum,
-               Processors & processors)
-{
+               Processors & processors) {
     int period = graphs[graphId]._period;
     bool isTarget = graphs[graphId]._isTarget;
 
     TaskGraph taskGraph(newGraphId, period, instanceNum, isTarget);
     taskGraph._copyOf = graphId;
 
-    for (const auto & task : graphs[graphId])
-    {
+    for (const auto & task : graphs[graphId]) {
         int id = task.second->_id;
         taskGraph[id] = new Task(*task.second);
         taskGraph[id]->_instanceNum = instanceNum;
@@ -304,23 +277,18 @@ void copyGraph(std::vector<TaskGraph> & graphs,
         }
     }
 
-    for (const auto & task : graphs[graphId])
-    {
+    for (const auto & task : graphs[graphId]) {
         int id = task.second->_id;
-        for (const auto & pred : task.second->_predecessors)
-        {
+        for (const auto & pred : task.second->_predecessors) {
             taskGraph[id]->_predecessors.push_back(taskGraph[pred->_id]);
         }
-        for (const auto & succ : task.second->_successors)
-        {
+        for (const auto & succ : task.second->_successors) {
             taskGraph[id]->_successors.push_back(taskGraph[succ->_id]);
         }
-        for (const auto & excl : task.second->_tExcl)
-        {
+        for (const auto & excl : task.second->_tExcl) {
             taskGraph[id]->_tExcl.push_back(taskGraph[excl->_id]);
         }
-        for (const auto & hp : task.second->_hp)
-        {
+        for (const auto & hp : task.second->_hp) {
             taskGraph[id]->_hp.push_back(hp);
         }
     }
@@ -328,12 +296,9 @@ void copyGraph(std::vector<TaskGraph> & graphs,
 }
 
 
-void sortTasks(std::vector<TaskGraph> & graphs, std::vector<Task*> & sortedQueue)
-{
-    for (uint32_t i = 0; i < graphs.size(); i++)
-    {
-        for (const auto & task : graphs[i])
-        {
+void sortTasks(std::vector<TaskGraph> & graphs, std::vector<Task*> & sortedQueue) {
+    for (uint32_t i = 0; i < graphs.size(); i++) {
+        for (const auto & task : graphs[i]) {
             sortedQueue.push_back(task.second);
         }
     }
@@ -350,12 +315,9 @@ void sortTasks(std::vector<TaskGraph> & graphs, std::vector<Task*> & sortedQueue
 
 
 void assignHigherPrioritySet(std::vector<TaskGraph> & graphs,
-                             Processors & processors)
-{
-    for (auto & graph : graphs)
-    {
-        for (auto & task : graph)
-        {
+                             Processors & processors) {
+    for (auto & graph : graphs) {
+        for (auto & task : graph) {
             if (!task.second->_isMessage) {
                 setHp(graphs, task.second, processors);
             }
@@ -366,38 +328,31 @@ void assignHigherPrioritySet(std::vector<TaskGraph> & graphs,
 
 void setHp(std::vector<TaskGraph> & graphs,
            Task * task,
-           Processors & processors)
-{
+           Processors & processors) {
     int graphId = task->_graphId;
     int copyOf = graphs[graphId]._copyOf;
-    for (auto & taskPos : processors[task->_processorNum])
-    {
+    for (auto & taskPos : processors[task->_processorNum]) {
         int simProcGraphId = taskPos._graphId;
         int simProcCopyOf = graphs[simProcGraphId]._copyOf;
         Task * taskOnSimilarProc = graphs[simProcGraphId][taskPos._taskId];
-        if (task->_priority >= taskOnSimilarProc->_priority)
-        {
+        if (task->_priority >= taskOnSimilarProc->_priority) {
             continue;
         }
         else if (simProcGraphId == graphId &&
-                 taskPos._taskId == task->_id)
-        {
+                 taskPos._taskId == task->_id) {
             continue;
         }
         else if (simProcGraphId != graphId &&
-                 copyOf == simProcCopyOf)
-        {
+                 copyOf == simProcCopyOf) {
             continue;
         }
         else if (checkExcl(task,
                            taskOnSimilarProc,
                            graphId,
-                           simProcGraphId))
-        {
+                           simProcGraphId)) {
             continue;
         }
-        else if (task->_partitionId == taskOnSimilarProc->_partitionId)
-        {
+        else if (task->_partitionId == taskOnSimilarProc->_partitionId) {
             task->_hp.push_back(taskOnSimilarProc);
         }
     }
@@ -407,16 +362,12 @@ void setHp(std::vector<TaskGraph> & graphs,
 bool checkExcl(Task * task1,
                Task * task2,
                const int & graphId,
-               const int & simGraphId)
-{
-    if (graphId != simGraphId)
-    {
+               const int & simGraphId) {
+    if (graphId != simGraphId) {
         return false;
     }
-    for (const auto & task : task1->_tExcl)
-    {
-        if (task == task2)
-        {
+    for (const auto & task : task1->_tExcl) {
+        if (task == task2) {
             return true;
         }
     }
@@ -424,16 +375,13 @@ bool checkExcl(Task * task1,
 }
 
 
-void computeTimeBounds(std::vector<Task*> & sortedQueue)
-{
+void computeTimeBounds(std::vector<Task*> & sortedQueue) {
     int i = 0;
     bool changed;
-    do
-    {
+    do {
         changed = false;
         std::cerr << "===" << i << "===" << std::endl;
-        for (auto & t : sortedQueue)
-        {
+        for (auto & t : sortedQueue) {
             if (t->_isMessage) {
                 minA(t, changed);
                 t->_minS = t->_minA;
@@ -449,18 +397,17 @@ void computeTimeBounds(std::vector<Task*> & sortedQueue)
                 maxS(t, changed);
                 maxF(t, changed);
             }
+            t->_RT = t->_maxF - t->_instanceNum * t->_period;
         }
         i++;
-        for (auto & t : sortedQueue)
-        {
+        for (auto & t : sortedQueue) {
             t->_tPmtor.clear();
         }
     } while (changed);
 }
 
 
-void minA (Task * t, bool & changed)
-{
+void minA (Task * t, bool & changed) {
     if (t->_isSource) {
         t->_minA = t->_instanceNum * t->_period;
         return;
@@ -476,8 +423,7 @@ void minA (Task * t, bool & changed)
 }
 
 
-void maxA (Task * t, bool & changed)
-{
+void maxA (Task * t, bool & changed) {
     if (t->_isSource) {
         t->_maxA = t->_instanceNum * t->_period;
         return;
@@ -491,11 +437,15 @@ void maxA (Task * t, bool & changed)
                 exit(1);
             }
             Task* mainPredecessor = *(p->_predecessors.begin());
-            if (t->_processorNum == mainPredecessor->_processorNum)
-            {
+            if (t->_processorNum == mainPredecessor->_processorNum) {
                 t->_tPmtor.insert(t->_tPmtor.end(),
                                   mainPredecessor->_tPmtor.begin(),
                                   mainPredecessor->_tPmtor.end());
+            }
+        } else if (not t->_isMessage) {
+            if (t->_processorNum == p->_processorNum) {
+                t->_tPmtor.insert(t->_tPmtor.end(), p->_tPmtor.begin(),
+                                  p->_tPmtor.end());
             }
         }
         if (p->_maxF > t->_maxA) {
@@ -616,12 +566,9 @@ void maxF (Task * t, bool & changed) {
 }
 
 
-bool checkPmtor(Task * task1, Task * task2)
-{
-    for (const auto & task : task1->_tPmtor)
-    {
-        if (task == task2)
-        {
+bool checkPmtor(Task * task1, Task * task2) {
+    for (const auto & task : task1->_tPmtor) {
+        if (task == task2) {
             return true;
         }
     }
@@ -629,20 +576,25 @@ bool checkPmtor(Task * task1, Task * task2)
 }
 
 
-int getWCRT(std::vector<TaskGraph> & graphs, int targetTask)
-{
+int getWCRT(std::vector<TaskGraph> & graphs, int graphId, int taskId) {
     int maxRT = 0;
-    for (auto & graph : graphs)
-    {
-        if (graph._isTarget)
-        {
-            if (maxRT < (graph[targetTask]->_maxF -
-                         graph._instanceNum * graph._period))
-            {
-                maxRT = graph[targetTask]->_maxF -
-                        graph._instanceNum * graph._period;
+    for (auto & graph : graphs) {
+        if (graph._copyOf == graphId) {
+            if (maxRT < graph[taskId]->_RT) {
+                maxRT = graph[taskId]->_RT;
             }
         }
     }
     return maxRT;
+}
+
+
+void setWCRTs(std::vector<TaskGraph> & graphs, 
+              std::map<int,Task*> & tasks) {
+    for (auto & task : tasks) {
+        if (not task.second->_isMessage) {
+            int graphId = task.second->_graphId, taskId = task.second->_id;
+            task.second->_WCRT = getWCRT(graphs, graphId, taskId);
+        }
+    }
 }

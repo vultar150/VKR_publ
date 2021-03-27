@@ -37,6 +37,8 @@ class Task
         bool _setExcl, _setExcl2; // help for compute exclusion set
         bool _isTarget;
         bool _isMessage;
+        int _RT;
+        int _WCRT;
         std::vector<Task*> _tExcl; // direct pass
         std::vector<Task*> _tExcl2; // reverse pass
         std::vector<Task*> _predecessors;
