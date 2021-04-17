@@ -1,0 +1,7 @@
+<system>
+	<task index="0" maj_fr="446275" prio="1" bcet="1" wcet="25000" period="446275" deadline="446275" proc="0" Dep="" Inf="2" />
+	<task index="1" maj_fr="446275" prio="1" bcet="1" wcet="25000" period="446275" deadline="446275" proc="1" Dep="" Inf="" />
+	<task index="2" maj_fr="446275" prio="2" bcet="1" wcet="30487" period="446275" deadline="446275" proc="1" Dep="0" Inf="" />
+	<tlink src="0" dist="2" delay="0" />
+
+</system>
