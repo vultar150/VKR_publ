@@ -24,3 +24,9 @@ add_executable(VKR_publ
   src/tinyxml2.cpp
   src/tinyxml2.h
 )
+
+add_executable(generator
+  src/generator.cpp
+  src/tinyxml2.cpp
+  src/tinyxml2.h
+)
