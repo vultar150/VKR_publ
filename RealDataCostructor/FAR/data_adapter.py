@@ -38,7 +38,7 @@ def pop(name):
     tasks = dom.getElementsByTagName("task")
     for task in tasks:
         task_id = int(task.getAttribute("id"))
-        wcet = rand.randint(1, maj_fr//40)
+        wcet = rand.randint(1, maj_fr//80)
         bcet = int(wcet/10)
         wcet = int(2*wcet)
         prio = int(task.getAttribute("prio"))
