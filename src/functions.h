@@ -91,7 +91,7 @@ void clearSetsPmtor(std::vector<TaskGraph> & graphs);
 
 int getWCRT(std::vector<TaskGraph> & graphs, int graphId, int taskId);
 
-void setWCRTs(std::vector<TaskGraph> & graphs, 
+bool setWCRTs(std::vector<TaskGraph> & graphs, 
               std::unordered_map<int,Task*> & tasks);
 
 void firstInitialization(std::vector<TaskGraph> & graphs, Processors & processors, std::vector<Task*> & sortedQueue);

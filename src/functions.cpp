@@ -589,12 +589,17 @@ int getWCRT(std::vector<TaskGraph> & graphs, int graphId, int taskId) {
 }
 
 
-void setWCRTs(std::vector<TaskGraph> & graphs, 
+bool setWCRTs(std::vector<TaskGraph> & graphs, 
               std::unordered_map<int,Task*> & tasks) {
+    bool schedulability = true;
     for (auto & task : tasks) {
         if (not task.second->_isMessage) {
             int graphId = task.second->_graphId, taskId = task.second->_id;
             task.second->_WCRT = getWCRT(graphs, graphId, taskId);
+            if (task.second->_WCRT > task.second->_period) {
+                schedulability = false;
+            }
         }
     }
+    return schedulability;
 }
