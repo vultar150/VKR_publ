@@ -47,7 +47,7 @@ int main(int argc, char **argv)
     sortTasks(graphs, sortedQueue);
     assignHigherPrioritySet(graphs, processors);
     computeTimeBounds(sortedQueue);
-    setWCRTs(graphs, tasks);
+    bool schedulability = setWCRTs(graphs, tasks);
 
     time = clock() - time;
 
@@ -56,6 +56,7 @@ int main(int argc, char **argv)
     fout << "Period = " << tasks[targetTask]->_period << std::endl;
     fout << "Task num = " << targetTask << std::endl;
     fout << "Time = " << static_cast<float>(time)/CLOCKS_PER_SEC << std::endl;
+    fout << "Schedulability of all configure: " << schedulability << std::endl;
     fout << std::endl;
     fout.close();
 
@@ -74,6 +75,7 @@ int main(int argc, char **argv)
     std::cout << "Period = " << tasks[targetTask]->_period << std::endl;
     std::cout << "Task num = " << targetTask << std::endl;
     std::cout << "Time = " << static_cast<float>(time)/CLOCKS_PER_SEC << std::endl;
+    std::cout << "Schedulability of all configure: " << schedulability << std::endl;
     /*
     for (const auto & q : sortedQueue)
     {
