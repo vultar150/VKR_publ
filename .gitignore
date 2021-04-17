@@ -11,6 +11,8 @@ Makefile
 
 VKR_publ
 
+generator
+
 CMakeLists.txt.user
 
 cmake_install.cmake
