@@ -1,0 +1,187 @@
+<system>
+    <module major_frame="10000" name="Module0">
+        <partition id="0" name="Partition10" scheduler="FPPS">
+            <task id="1" name="Task1" wcet="12" prio="1" offset="0" period="10000" deadline="10000"/>
+        </partition>
+        <partition id="1" name="Partition11" scheduler="FPPS">
+            <task id="11" name="Task11" wcet="6" prio="11" offset="0" period="10000" deadline="10000"/>
+            <task id="23" name="Task23" wcet="12" prio="23" offset="0" period="10000" deadline="10000"/>
+        </partition>
+        <partition id="2" name="Partition12" scheduler="FPPS">
+            <task id="25" name="Task25" wcet="14" prio="25" offset="0" period="10000" deadline="10000"/>
+        </partition>
+        <partition id="3" name="Partition13" scheduler="FPPS">
+            <task id="30" name="Task30" wcet="34" prio="30" offset="0" period="10000" deadline="10000"/>
+        </partition>
+        <window start="0" stop="1319" partition="0"/>
+        <window start="1319" stop="2346" partition="1"/>
+        <window start="2346" stop="3803" partition="2"/>
+        <window start="3803" stop="4818" partition="3"/>
+        <window start="4818" stop="6057" partition="0"/>
+        <window start="6057" stop="7239" partition="1"/>
+        <window start="7239" stop="8628" partition="2"/>
+        <window start="8628" stop="9632" partition="3"/>
+        <window start="9632" stop="10000" partition="0"/>
+    </module>
+    <module major_frame="10000" name="Module1">
+        <partition id="0" name="Partition14" scheduler="FPPS">
+            <task id="26" name="Task26" wcet="24" prio="26" offset="0" period="10000" deadline="10000"/>
+            <task id="0" name="Task0" wcet="28" prio="0" offset="0" period="10000" deadline="10000"/>
+            <task id="10" name="Task10" wcet="20" prio="10" offset="0" period="10000" deadline="10000"/>
+            <task id="24" name="Task24" wcet="28" prio="24" offset="0" period="10000" deadline="10000"/>
+        </partition>
+        <partition id="1" name="Partition15" scheduler="FPPS">
+            <task id="9" name="Task9" wcet="12" prio="9" offset="0" period="10000" deadline="10000"/>
+            <task id="6" name="Task6" wcet="2" prio="6" offset="0" period="10000" deadline="10000"/>
+            <task id="20" name="Task20" wcet="34" prio="20" offset="0" period="10000" deadline="10000"/>
+        </partition>
+        <window start="0" stop="1015" partition="0"/>
+        <window start="1015" stop="1674" partition="1"/>
+        <window start="1674" stop="2680" partition="0"/>
+        <window start="2680" stop="3891" partition="1"/>
+        <window start="3891" stop="4486" partition="0"/>
+        <window start="4486" stop="5743" partition="1"/>
+        <window start="5743" stop="6962" partition="0"/>
+        <window start="6962" stop="7918" partition="1"/>
+        <window start="7918" stop="8590" partition="0"/>
+        <window start="8590" stop="9697" partition="1"/>
+        <window start="9697" stop="10000" partition="0"/>
+    </module>
+    <module major_frame="10000" name="Module2">
+        <partition id="0" name="Partition0" scheduler="FPPS">
+            <task id="31" name="Task31" wcet="8" prio="31" offset="0" period="10000" deadline="10000"/>
+            <task id="15" name="Task15" wcet="40" prio="15" offset="0" period="10000" deadline="10000"/>
+            <task id="17" name="Task17" wcet="36" prio="17" offset="0" period="10000" deadline="10000"/>
+            <task id="18" name="Task18" wcet="6" prio="18" offset="0" period="10000" deadline="10000"/>
+            <task id="21" name="Task21" wcet="20" prio="21" offset="0" period="10000" deadline="10000"/>
+            <task id="32" name="Task32" wcet="26" prio="32" offset="0" period="10000" deadline="10000"/>
+        </partition>
+        <window start="0" stop="10000" partition="0"/>
+    </module>
+    <module major_frame="10000" name="Module3">
+        <partition id="0" name="Partition3" scheduler="FPPS">
+            <task id="22" name="Task22" wcet="36" prio="22" offset="0" period="10000" deadline="10000"/>
+            <task id="3" name="Task3" wcet="26" prio="3" offset="0" period="10000" deadline="10000"/>
+        </partition>
+        <partition id="1" name="Partition4" scheduler="FPPS">
+            <task id="19" name="Task19" wcet="34" prio="19" offset="0" period="10000" deadline="10000"/>
+            <task id="7" name="Task7" wcet="2" prio="7" offset="0" period="10000" deadline="10000"/>
+            <task id="13" name="Task13" wcet="40" prio="13" offset="0" period="10000" deadline="10000"/>
+            <task id="34" name="Task34" wcet="16" prio="34" offset="0" period="10000" deadline="10000"/>
+        </partition>
+        <partition id="2" name="Partition5" scheduler="FPPS">
+            <task id="36" name="Task36" wcet="16" prio="36" offset="0" period="10000" deadline="10000"/>
+        </partition>
+        <window start="0" stop="702" partition="0"/>
+        <window start="702" stop="1634" partition="1"/>
+        <window start="1634" stop="2678" partition="2"/>
+        <window start="2678" stop="3531" partition="0"/>
+        <window start="3531" stop="4402" partition="1"/>
+        <window start="4402" stop="4928" partition="2"/>
+        <window start="4928" stop="5943" partition="0"/>
+        <window start="5943" stop="6740" partition="1"/>
+        <window start="6740" stop="8046" partition="2"/>
+        <window start="8046" stop="9160" partition="0"/>
+        <window start="9160" stop="10000" partition="1"/>
+    </module>
+    <module major_frame="10000" name="Module4">
+        <partition id="0" name="Partition2" scheduler="FPPS">
+            <task id="4" name="Task4" wcet="8" prio="4" offset="0" period="10000" deadline="10000"/>
+            <task id="5" name="Task5" wcet="24" prio="5" offset="0" period="10000" deadline="10000"/>
+        </partition>
+        <window start="0" stop="10000" partition="0"/>
+    </module>
+    <module major_frame="10000" name="Module5">
+        <partition id="0" name="Partition6" scheduler="FPPS">
+            <task id="16" name="Task16" wcet="2" prio="16" offset="0" period="10000" deadline="10000"/>
+        </partition>
+        <partition id="1" name="Partition7" scheduler="FPPS">
+            <task id="33" name="Task33" wcet="32" prio="33" offset="0" period="10000" deadline="10000"/>
+            <task id="14" name="Task14" wcet="14" prio="14" offset="0" period="10000" deadline="10000"/>
+            <task id="37" name="Task37" wcet="28" prio="37" offset="0" period="10000" deadline="10000"/>
+        </partition>
+        <partition id="2" name="Partition8" scheduler="FPPS">
+            <task id="2" name="Task2" wcet="32" prio="2" offset="0" period="10000" deadline="10000"/>
+            <task id="8" name="Task8" wcet="18" prio="8" offset="0" period="10000" deadline="10000"/>
+        </partition>
+        <partition id="3" name="Partition9" scheduler="FPPS">
+            <task id="35" name="Task35" wcet="22" prio="35" offset="0" period="10000" deadline="10000"/>
+        </partition>
+        <window start="0" stop="1442" partition="0"/>
+        <window start="1442" stop="1977" partition="1"/>
+        <window start="1977" stop="3351" partition="2"/>
+        <window start="3351" stop="4223" partition="3"/>
+        <window start="4223" stop="5101" partition="0"/>
+        <window start="5101" stop="5904" partition="1"/>
+        <window start="5904" stop="6758" partition="2"/>
+        <window start="6758" stop="7679" partition="3"/>
+        <window start="7679" stop="8258" partition="0"/>
+        <window start="8258" stop="9522" partition="1"/>
+        <window start="9522" stop="10000" partition="2"/>
+    </module>
+    <module major_frame="10000" name="Module6">
+        <partition id="0" name="Partition1" scheduler="FPPS">
+            <task id="12" name="Task12" wcet="22" prio="12" offset="0" period="10000" deadline="10000"/>
+            <task id="27" name="Task27" wcet="2" prio="27" offset="0" period="10000" deadline="10000"/>
+            <task id="28" name="Task28" wcet="24" prio="28" offset="0" period="10000" deadline="10000"/>
+            <task id="29" name="Task29" wcet="36" prio="29" offset="0" period="10000" deadline="10000"/>
+        </partition>
+        <window start="0" stop="10000" partition="0"/>
+    </module>
+    <link src="0" dst="29" delay="98"/>
+    <link src="0" dst="13" delay="69"/>
+    <link src="0" dst="21" delay="84"/>
+    <link src="0" dst="5" delay="93"/>
+    <link src="1" dst="29" delay="93"/>
+    <link src="1" dst="13" delay="81"/>
+    <link src="1" dst="21" delay="11"/>
+    <link src="1" dst="5" delay="45"/>
+    <link src="2" dst="29" delay="66"/>
+    <link src="2" dst="13" delay="100"/>
+    <link src="2" dst="21" delay="19"/>
+    <link src="2" dst="5" delay="11"/>
+    <link src="3" dst="29" delay="86"/>
+    <link src="3" dst="13" delay="31"/>
+    <link src="3" dst="21" delay="35"/>
+    <link src="3" dst="5" delay="73"/>
+    <link src="4" dst="29" delay="87"/>
+    <link src="4" dst="13" delay="39"/>
+    <link src="4" dst="21" delay="61"/>
+    <link src="4" dst="5" delay="33"/>
+    <link src="5" dst="6" delay="49"/>
+    <link src="6" dst="7" delay="95"/>
+    <link src="7" dst="8" delay="44"/>
+    <link src="7" dst="11" delay="67"/>
+    <link src="8" dst="9" delay="71"/>
+    <link src="9" dst="10" delay="87"/>
+    <link src="10" dst="37" delay="58"/>
+    <link src="11" dst="12" delay="33"/>
+    <link src="12" dst="10" delay="8"/>
+    <link src="13" dst="14" delay="22"/>
+    <link src="14" dst="15" delay="24"/>
+    <link src="15" dst="16" delay="50"/>
+    <link src="15" dst="19" delay="23"/>
+    <link src="16" dst="17" delay="15"/>
+    <link src="17" dst="18" delay="69"/>
+    <link src="18" dst="37" delay="50"/>
+    <link src="19" dst="20" delay="80"/>
+    <link src="20" dst="18" delay="52"/>
+    <link src="21" dst="22" delay="64"/>
+    <link src="22" dst="23" delay="27"/>
+    <link src="23" dst="24" delay="55"/>
+    <link src="23" dst="27" delay="48"/>
+    <link src="24" dst="25" delay="100"/>
+    <link src="25" dst="26" delay="56"/>
+    <link src="26" dst="37" delay="62"/>
+    <link src="27" dst="28" delay="58"/>
+    <link src="28" dst="26" delay="33"/>
+    <link src="29" dst="30" delay="62"/>
+    <link src="30" dst="31" delay="100"/>
+    <link src="31" dst="32" delay="87"/>
+    <link src="31" dst="35" delay="11"/>
+    <link src="32" dst="33" delay="38"/>
+    <link src="33" dst="34" delay="63"/>
+    <link src="34" dst="37" delay="13"/>
+    <link src="35" dst="36" delay="8"/>
+    <link src="36" dst="34" delay="50"/>
+</system>

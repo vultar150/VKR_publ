@@ -1,0 +1,26 @@
+<system>
+    <module major_frame="120" name="Module0">
+        <partition id="0" name="Partition0" scheduler="FPPS">
+            <task id="0" name="Task0" wcet="20" prio="5" offset="0" period="40" deadline="40"/>
+        </partition>
+        <window start="0" stop="120" partition="0"/>
+    </module>
+    <module major_frame="120" name="Module1">
+        <partition id="0" name="Partition1" scheduler="FPPS">
+            <task id="2" name="Task2" wcet="5" prio="3" offset="0" period="60" deadline="60"/>
+        </partition>
+        <window start="0" stop="120" partition="0"/>
+    </module>
+    <module major_frame="120" name="Module2">
+        <partition id="0" name="Partition2" scheduler="FPPS">
+            <task id="1" name="Task1" wcet="10" prio="4" offset="0" period="40" deadline="40"/>
+            <task id="3" name="Task3" wcet="10" prio="2" offset="0" period="60" deadline="60"/>
+            <task id="4" name="Task4" wcet="10" prio="1" offset="0" period="60" deadline="60"/>
+        </partition>
+        <window start="0" stop="97" partition="0"/>
+        <window start="107" stop="120" partition="0"/>
+    </module>
+    <link src="0" dst="1" delay="0"/>
+    <link src="2" dst="3" delay="0"/>
+    <link src="3" dst="4" delay="0"/>
+</system>

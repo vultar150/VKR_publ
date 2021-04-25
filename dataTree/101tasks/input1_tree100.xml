@@ -1,0 +1,223 @@
+<system>
+    <partition id="0" proc="0" maj_fr="10000">
+        <task id="10" prio="10" bcet="5" wcet="45" period="10000" deadline="10000"/>
+        <task id="5" prio="5" bcet="1" wcet="50" period="10000" deadline="10000"/>
+        <task id="6" prio="6" bcet="6" wcet="12" period="10000" deadline="10000"/>
+        <task id="14" prio="14" bcet="2" wcet="44" period="10000" deadline="10000"/>
+        <task id="18" prio="18" bcet="8" wcet="35" period="10000" deadline="10000"/>
+        <task id="22" prio="22" bcet="3" wcet="20" period="10000" deadline="10000"/>
+        <window start="0" stop="713"/>
+        <window start="3669" stop="4883"/>
+        <window start="7348" stop="8528"/>
+    </partition>
+    <partition id="1" proc="0" maj_fr="10000">
+        <task id="20" prio="20" bcet="3" wcet="49" period="10000" deadline="10000"/>
+        <task id="4" prio="4" bcet="1" wcet="12" period="10000" deadline="10000"/>
+        <task id="7" prio="7" bcet="4" wcet="35" period="10000" deadline="10000"/>
+        <task id="9" prio="9" bcet="7" wcet="20" period="10000" deadline="10000"/>
+        <task id="15" prio="15" bcet="10" wcet="15" period="10000" deadline="10000"/>
+        <task id="16" prio="16" bcet="8" wcet="20" period="10000" deadline="10000"/>
+        <task id="19" prio="19" bcet="1" wcet="11" period="10000" deadline="10000"/>
+        <task id="23" prio="23" bcet="5" wcet="16" period="10000" deadline="10000"/>
+        <task id="24" prio="24" bcet="10" wcet="10" period="10000" deadline="10000"/>
+        <window start="713" stop="2148"/>
+        <window start="4883" stop="5827"/>
+        <window start="8528" stop="9529"/>
+    </partition>
+    <partition id="2" proc="0" maj_fr="10000">
+        <task id="8" prio="8" bcet="1" wcet="34" period="10000" deadline="10000"/>
+        <task id="0" prio="0" bcet="10" wcet="31" period="10000" deadline="10000"/>
+        <task id="1" prio="1" bcet="3" wcet="26" period="10000" deadline="10000"/>
+        <task id="3" prio="3" bcet="6" wcet="14" period="10000" deadline="10000"/>
+        <task id="12" prio="12" bcet="5" wcet="17" period="10000" deadline="10000"/>
+        <task id="21" prio="21" bcet="1" wcet="10" period="10000" deadline="10000"/>
+        <window start="2148" stop="2696"/>
+        <window start="5827" stop="6688"/>
+        <window start="9529" stop="10000"/>
+    </partition>
+    <partition id="3" proc="0" maj_fr="10000">
+        <task id="2" prio="2" bcet="9" wcet="47" period="10000" deadline="10000"/>
+        <task id="11" prio="11" bcet="1" wcet="16" period="10000" deadline="10000"/>
+        <task id="13" prio="13" bcet="6" wcet="35" period="10000" deadline="10000"/>
+        <task id="17" prio="17" bcet="5" wcet="49" period="10000" deadline="10000"/>
+        <window start="2696" stop="3669"/>
+        <window start="6688" stop="7348"/>
+    </partition>
+    <partition id="4" proc="1" maj_fr="10000">
+        <task id="43" prio="43" bcet="1" wcet="32" period="10000" deadline="10000"/>
+        <task id="26" prio="26" bcet="2" wcet="18" period="10000" deadline="10000"/>
+        <task id="28" prio="28" bcet="4" wcet="45" period="10000" deadline="10000"/>
+        <task id="29" prio="29" bcet="6" wcet="17" period="10000" deadline="10000"/>
+        <task id="30" prio="30" bcet="2" wcet="43" period="10000" deadline="10000"/>
+        <task id="31" prio="31" bcet="3" wcet="25" period="10000" deadline="10000"/>
+        <task id="32" prio="32" bcet="9" wcet="50" period="10000" deadline="10000"/>
+        <task id="33" prio="33" bcet="2" wcet="47" period="10000" deadline="10000"/>
+        <task id="36" prio="36" bcet="9" wcet="49" period="10000" deadline="10000"/>
+        <task id="37" prio="37" bcet="10" wcet="26" period="10000" deadline="10000"/>
+        <task id="41" prio="41" bcet="2" wcet="13" period="10000" deadline="10000"/>
+        <task id="42" prio="42" bcet="8" wcet="31" period="10000" deadline="10000"/>
+        <window start="0" stop="955"/>
+        <window start="2984" stop="3588"/>
+        <window start="5386" stop="6832"/>
+        <window start="9092" stop="9933"/>
+    </partition>
+    <partition id="5" proc="1" maj_fr="10000">
+        <task id="45" prio="45" bcet="1" wcet="11" period="10000" deadline="10000"/>
+        <task id="34" prio="34" bcet="3" wcet="50" period="10000" deadline="10000"/>
+        <task id="35" prio="35" bcet="6" wcet="22" period="10000" deadline="10000"/>
+        <task id="38" prio="38" bcet="4" wcet="38" period="10000" deadline="10000"/>
+        <task id="39" prio="39" bcet="5" wcet="39" period="10000" deadline="10000"/>
+        <task id="46" prio="46" bcet="2" wcet="30" period="10000" deadline="10000"/>
+        <task id="47" prio="47" bcet="3" wcet="20" period="10000" deadline="10000"/>
+        <window start="955" stop="1933"/>
+        <window start="3588" stop="4657"/>
+        <window start="6832" stop="7990"/>
+        <window start="9933" stop="10000"/>
+    </partition>
+    <partition id="6" proc="1" maj_fr="10000">
+        <task id="44" prio="44" bcet="9" wcet="25" period="10000" deadline="10000"/>
+        <task id="25" prio="25" bcet="5" wcet="37" period="10000" deadline="10000"/>
+        <task id="27" prio="27" bcet="4" wcet="11" period="10000" deadline="10000"/>
+        <task id="40" prio="40" bcet="8" wcet="11" period="10000" deadline="10000"/>
+        <task id="48" prio="48" bcet="7" wcet="42" period="10000" deadline="10000"/>
+        <task id="49" prio="49" bcet="10" wcet="16" period="10000" deadline="10000"/>
+        <window start="1933" stop="2984"/>
+        <window start="4657" stop="5386"/>
+        <window start="7990" stop="9092"/>
+    </partition>
+    <partition id="7" proc="2" maj_fr="10000">
+        <task id="55" prio="55" bcet="10" wcet="33" period="10000" deadline="10000"/>
+        <task id="50" prio="50" bcet="8" wcet="33" period="10000" deadline="10000"/>
+        <task id="51" prio="51" bcet="7" wcet="13" period="10000" deadline="10000"/>
+        <task id="52" prio="52" bcet="9" wcet="26" period="10000" deadline="10000"/>
+        <task id="53" prio="53" bcet="4" wcet="37" period="10000" deadline="10000"/>
+        <task id="54" prio="54" bcet="5" wcet="35" period="10000" deadline="10000"/>
+        <task id="56" prio="56" bcet="1" wcet="39" period="10000" deadline="10000"/>
+        <task id="57" prio="57" bcet="5" wcet="35" period="10000" deadline="10000"/>
+        <task id="58" prio="58" bcet="5" wcet="12" period="10000" deadline="10000"/>
+        <task id="59" prio="59" bcet="8" wcet="42" period="10000" deadline="10000"/>
+        <task id="60" prio="60" bcet="4" wcet="30" period="10000" deadline="10000"/>
+        <task id="61" prio="61" bcet="2" wcet="23" period="10000" deadline="10000"/>
+        <task id="62" prio="62" bcet="2" wcet="22" period="10000" deadline="10000"/>
+        <task id="63" prio="63" bcet="1" wcet="21" period="10000" deadline="10000"/>
+        <task id="64" prio="64" bcet="10" wcet="21" period="10000" deadline="10000"/>
+        <task id="65" prio="65" bcet="7" wcet="13" period="10000" deadline="10000"/>
+        <task id="66" prio="66" bcet="6" wcet="28" period="10000" deadline="10000"/>
+        <task id="67" prio="67" bcet="8" wcet="30" period="10000" deadline="10000"/>
+        <task id="68" prio="68" bcet="2" wcet="27" period="10000" deadline="10000"/>
+        <task id="69" prio="69" bcet="1" wcet="10" period="10000" deadline="10000"/>
+        <task id="70" prio="70" bcet="7" wcet="45" period="10000" deadline="10000"/>
+        <task id="71" prio="71" bcet="10" wcet="21" period="10000" deadline="10000"/>
+        <task id="72" prio="72" bcet="3" wcet="44" period="10000" deadline="10000"/>
+        <task id="73" prio="73" bcet="8" wcet="47" period="10000" deadline="10000"/>
+        <task id="74" prio="74" bcet="7" wcet="36" period="10000" deadline="10000"/>
+        <window start="0" stop="10000"/>
+    </partition>
+    <partition id="8" proc="3" maj_fr="10000">
+        <task id="80" prio="80" bcet="3" wcet="16" period="10000" deadline="10000"/>
+        <task id="75" prio="75" bcet="7" wcet="49" period="10000" deadline="10000"/>
+        <task id="76" prio="76" bcet="9" wcet="19" period="10000" deadline="10000"/>
+        <task id="77" prio="77" bcet="7" wcet="22" period="10000" deadline="10000"/>
+        <task id="78" prio="78" bcet="7" wcet="23" period="10000" deadline="10000"/>
+        <task id="79" prio="79" bcet="2" wcet="50" period="10000" deadline="10000"/>
+        <task id="81" prio="81" bcet="10" wcet="28" period="10000" deadline="10000"/>
+        <task id="82" prio="82" bcet="10" wcet="50" period="10000" deadline="10000"/>
+        <task id="83" prio="83" bcet="3" wcet="38" period="10000" deadline="10000"/>
+        <task id="84" prio="84" bcet="4" wcet="27" period="10000" deadline="10000"/>
+        <task id="85" prio="85" bcet="2" wcet="48" period="10000" deadline="10000"/>
+        <task id="86" prio="86" bcet="3" wcet="48" period="10000" deadline="10000"/>
+        <task id="87" prio="87" bcet="1" wcet="33" period="10000" deadline="10000"/>
+        <task id="88" prio="88" bcet="7" wcet="40" period="10000" deadline="10000"/>
+        <task id="89" prio="89" bcet="5" wcet="32" period="10000" deadline="10000"/>
+        <task id="90" prio="90" bcet="1" wcet="40" period="10000" deadline="10000"/>
+        <task id="91" prio="91" bcet="3" wcet="27" period="10000" deadline="10000"/>
+        <task id="92" prio="92" bcet="7" wcet="19" period="10000" deadline="10000"/>
+        <task id="93" prio="93" bcet="8" wcet="30" period="10000" deadline="10000"/>
+        <task id="94" prio="94" bcet="8" wcet="43" period="10000" deadline="10000"/>
+        <task id="95" prio="95" bcet="8" wcet="48" period="10000" deadline="10000"/>
+        <task id="96" prio="96" bcet="8" wcet="12" period="10000" deadline="10000"/>
+        <task id="97" prio="97" bcet="5" wcet="33" period="10000" deadline="10000"/>
+        <task id="98" prio="98" bcet="10" wcet="19" period="10000" deadline="10000"/>
+        <task id="99" prio="99" bcet="4" wcet="43" period="10000" deadline="10000"/>
+        <window start="0" stop="10000"/>
+    </partition>
+    <tlink src="75" dist="76" bctt="2" wctt="6"/>
+    <tlink src="75" dist="77" bctt="1" wctt="8"/>
+    <tlink src="78" dist="79" bctt="1" wctt="3"/>
+    <tlink src="79" dist="80" bctt="2" wctt="3"/>
+    <tlink src="79" dist="81" bctt="0" wctt="0"/>
+    <tlink src="79" dist="82" bctt="5" wctt="8"/>
+    <tlink src="79" dist="83" bctt="8" wctt="8"/>
+    <tlink src="79" dist="84" bctt="4" wctt="4"/>
+    <tlink src="85" dist="86" bctt="5" wctt="10"/>
+    <tlink src="86" dist="87" bctt="0" wctt="4"/>
+    <tlink src="87" dist="88" bctt="1" wctt="9"/>
+    <tlink src="89" dist="90" bctt="3" wctt="10"/>
+    <tlink src="89" dist="91" bctt="1" wctt="8"/>
+    <tlink src="91" dist="92" bctt="2" wctt="6"/>
+    <tlink src="92" dist="93" bctt="6" wctt="10"/>
+    <tlink src="93" dist="94" bctt="1" wctt="3"/>
+    <tlink src="93" dist="95" bctt="1" wctt="1"/>
+    <tlink src="93" dist="96" bctt="4" wctt="4"/>
+    <tlink src="97" dist="98" bctt="1" wctt="1"/>
+    <tlink src="97" dist="99" bctt="1" wctt="2"/>
+    <tlink src="97" dist="50" bctt="1" wctt="5"/>
+    <tlink src="51" dist="52" bctt="0" wctt="0"/>
+    <tlink src="53" dist="54" bctt="0" wctt="0"/>
+    <tlink src="54" dist="55" bctt="5" wctt="9"/>
+    <tlink src="55" dist="56" bctt="2" wctt="3"/>
+    <tlink src="56" dist="57" bctt="7" wctt="9"/>
+    <tlink src="56" dist="58" bctt="7" wctt="9"/>
+    <tlink src="58" dist="59" bctt="2" wctt="7"/>
+    <tlink src="58" dist="60" bctt="3" wctt="4"/>
+    <tlink src="61" dist="62" bctt="2" wctt="2"/>
+    <tlink src="61" dist="63" bctt="5" wctt="6"/>
+    <tlink src="61" dist="64" bctt="2" wctt="2"/>
+    <tlink src="64" dist="65" bctt="0" wctt="1"/>
+    <tlink src="66" dist="67" bctt="2" wctt="2"/>
+    <tlink src="68" dist="69" bctt="0" wctt="0"/>
+    <tlink src="69" dist="70" bctt="1" wctt="1"/>
+    <tlink src="70" dist="71" bctt="5" wctt="6"/>
+    <tlink src="71" dist="72" bctt="0" wctt="0"/>
+    <tlink src="72" dist="73" bctt="0" wctt="0"/>
+    <tlink src="72" dist="74" bctt="3" wctt="6"/>
+    <tlink src="72" dist="25" bctt="1" wctt="8"/>
+    <tlink src="72" dist="26" bctt="2" wctt="7"/>
+    <tlink src="26" dist="27" bctt="4" wctt="7"/>
+    <tlink src="26" dist="28" bctt="0" wctt="10"/>
+    <tlink src="29" dist="30" bctt="1" wctt="2"/>
+    <tlink src="29" dist="31" bctt="1" wctt="1"/>
+    <tlink src="32" dist="33" bctt="4" wctt="4"/>
+    <tlink src="32" dist="34" bctt="3" wctt="4"/>
+    <tlink src="32" dist="35" bctt="1" wctt="6"/>
+    <tlink src="36" dist="37" bctt="2" wctt="6"/>
+    <tlink src="38" dist="39" bctt="7" wctt="7"/>
+    <tlink src="38" dist="40" bctt="6" wctt="9"/>
+    <tlink src="40" dist="41" bctt="4" wctt="7"/>
+    <tlink src="42" dist="43" bctt="4" wctt="6"/>
+    <tlink src="44" dist="45" bctt="0" wctt="1"/>
+    <tlink src="44" dist="46" bctt="0" wctt="5"/>
+    <tlink src="44" dist="47" bctt="2" wctt="7"/>
+    <tlink src="48" dist="49" bctt="1" wctt="1"/>
+    <tlink src="48" dist="0" bctt="1" wctt="10"/>
+    <tlink src="48" dist="1" bctt="1" wctt="4"/>
+    <tlink src="1" dist="2" bctt="2" wctt="3"/>
+    <tlink src="2" dist="3" bctt="2" wctt="5"/>
+    <tlink src="3" dist="4" bctt="0" wctt="1"/>
+    <tlink src="3" dist="5" bctt="3" wctt="5"/>
+    <tlink src="3" dist="6" bctt="5" wctt="10"/>
+    <tlink src="7" dist="8" bctt="1" wctt="10"/>
+    <tlink src="8" dist="9" bctt="2" wctt="4"/>
+    <tlink src="9" dist="10" bctt="3" wctt="7"/>
+    <tlink src="9" dist="11" bctt="3" wctt="7"/>
+    <tlink src="12" dist="13" bctt="7" wctt="7"/>
+    <tlink src="13" dist="14" bctt="0" wctt="0"/>
+    <tlink src="13" dist="15" bctt="1" wctt="4"/>
+    <tlink src="13" dist="16" bctt="0" wctt="3"/>
+    <tlink src="13" dist="17" bctt="1" wctt="1"/>
+    <tlink src="17" dist="18" bctt="7" wctt="8"/>
+    <tlink src="19" dist="20" bctt="4" wctt="5"/>
+    <tlink src="19" dist="21" bctt="8" wctt="10"/>
+    <tlink src="21" dist="22" bctt="1" wctt="9"/>
+    <tlink src="23" dist="24" bctt="5" wctt="8"/>
+</system>
