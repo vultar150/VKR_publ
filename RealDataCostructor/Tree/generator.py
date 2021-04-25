@@ -17,14 +17,15 @@ class Task:
         self.id = id3
         self.proc = HW
         b = prob(1,10)
-        w = prob(10,200)
+        # w = prob(10,200)
+        w = prob(10,50)
         if b>w:
             w,b = b,w
         self.bcet = b
         self.wcet = w
         self.free = True
         self.per = 10000
-        self.maj = self.per*10
+        self.maj = self.per
         self.Inf = set()
         self.Dep = set()
         self.prio = pr

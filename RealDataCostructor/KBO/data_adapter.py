@@ -33,12 +33,14 @@ def pop(name):
     f = open(name,'r')
     dom = xm.parse(name)
     dom.normalize()
-    maj_fr = rand.randint(1, 10000)
+    # maj_fr = rand.randint(1, 10000)
+    maj_fr = 10000
     period = maj_fr
     tasks = dom.getElementsByTagName("task")
     for task in tasks:
         task_id = int(task.getAttribute("id"))
-        wcet = rand.randint(1, maj_fr//50)
+        # wcet = rand.randint(1, maj_fr//50)
+        wcet = rand.randint(1, maj_fr//200)
         bcet = int(wcet/10)
         wcet = int(2*wcet)
         prio = int(task.getAttribute("prio"))
