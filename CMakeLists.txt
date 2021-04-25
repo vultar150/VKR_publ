@@ -30,3 +30,9 @@ add_executable(generator
   src/tinyxml2.cpp
   src/tinyxml2.h
 )
+
+add_executable(generator_lb
+  src/generator_lb.cpp
+  src/tinyxml2.cpp
+  src/tinyxml2.h
+)
