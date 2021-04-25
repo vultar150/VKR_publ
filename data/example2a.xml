@@ -1,16 +1,16 @@
 <system>
-    <partition id="0" proc="1" maj_fr="80">
-        <task id="0" prio="5" bcet="20" wcet="20" period="80" deadline="80"/>
-        <task id="3" prio="2" bcet="20" wcet="20" period="80" deadline="80"/>
+    <partition id="0" proc="1" maj_fr="120">
+        <task id="0" prio="5" bcet="20" wcet="20" period="120" deadline="120"/>
+        <task id="3" prio="2" bcet="20" wcet="20" period="120" deadline="120"/>
         <window start="0" stop="20"/>
-        <window start="30" stop="80"/>
+        <window start="30" stop="120"/>
     </partition>
-    <partition id="0" proc="2" maj_fr="80">
-        <task id="1" prio="4" bcet="20" wcet="20" period="80" deadline="80"/>
-        <task id="2" prio="3" bcet="20" wcet="20" period="80" deadline="80"/>
-        <task id="4" prio="1" bcet="20" wcet="20" period="80" deadline="80"/>
+    <partition id="0" proc="2" maj_fr="120">
+        <task id="1" prio="4" bcet="20" wcet="20" period="120" deadline="120"/>
+        <task id="2" prio="3" bcet="20" wcet="20" period="120" deadline="120"/>
+        <task id="4" prio="1" bcet="20" wcet="20" period="120" deadline="120"/>
         <window start="0" stop="20"/>
-        <window start="30" stop="80"/>
+        <window start="30" stop="120"/>
     </partition>
     <tlink src="0" dist="1" bctt="0" wctt="0"/>
     <tlink src="2" dist="3" bctt="0" wctt="0"/>

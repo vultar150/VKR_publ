@@ -1,9 +1,0 @@
-<system>
-    <partition id="0" proc="0" maj_fr="40">
-        <task id="0" prio="1" bcet="10" wcet="10" period="40" deadline="40"/>
-        <task id="1" prio="0" bcet="20" wcet="20" period="40" deadline="40"/>
-        <window start="0" stop="25"/>
-        <!-- <window start="35" stop="36"/> -->
-    </partition>
-    <tlink src="0" dist="1" bctt="0" wctt="0"/>
-</system>
