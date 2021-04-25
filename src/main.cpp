@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <fstream>
 #include <ctime>
+#include <map>
 
 #include "classes.h"
 #include "functions.h"
@@ -60,14 +61,24 @@ int main(int argc, char **argv)
     fout << std::endl;
     fout.close();
 
+    int averageWCRT = 0;
+    int count = 0;
+    std::map<int, int> wcrts;
     for (auto & graph : graphs) {
         if (graph._instanceNum > 0) break;
         for (auto & task : graph) {
             if (not task.second->_isMessage) {
                 task.second->outInfo();
+                averageWCRT += task.second->_WCRT;
+                count++;
+                wcrts[task.second->_id] = task.second->_WCRT;
             }
         }
         std::cout << std::endl;
+    }
+    
+    for (auto task : wcrts) {
+        std::cout << "t_" << task.first << "  R = " << task.second << std::endl;
     }
 
     std::cout << std::endl;
@@ -76,6 +87,8 @@ int main(int argc, char **argv)
     std::cout << "Task num = " << targetTask << std::endl;
     std::cout << "Time = " << static_cast<float>(time)/CLOCKS_PER_SEC << std::endl;
     std::cout << "Schedulability of all configure: " << schedulability << std::endl;
+    std::cout << "Number of tasks: " << count << std::endl;
+    std::cout << "Average WCRT: " << (double)averageWCRT / count << std::endl;
     /*
     for (const auto & q : sortedQueue)
     {
