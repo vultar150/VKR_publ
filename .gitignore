@@ -13,6 +13,10 @@ VKR_publ
 
 generator
 
+generator_lb
+
+output_real.xml
+
 CMakeLists.txt.user
 
 cmake_install.cmake
