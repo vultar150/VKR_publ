@@ -16,8 +16,8 @@ using namespace tinyxml2;
 
 
 
-const int MAX_NUM_PART_ON_PROC = 4;
-const int AVG_SIZE_WINDOW_COEF = 10; // min period on proc divide AVG_SIZE_...
+const int MAX_NUM_PART_ON_PROC = 5;
+const int AVG_SIZE_WINDOW_COEF = 100; // min period on proc divide AVG_SIZE_...
 const char* FILE_NAME = "data.xml";
 
 int maj_fr = 0;

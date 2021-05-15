@@ -1,0 +1,363 @@
+<system>
+    <module major_frame="10000" name="Module0">
+        <partition id="0" name="Partition0" scheduler="FPPS">
+            <task id="3" name="Task3" wcet="101" prio="3" offset="0" period="10000" deadline="10000"/>
+            <task id="0" name="Task0" wcet="102" prio="0" offset="0" period="10000" deadline="10000"/>
+            <task id="1" name="Task1" wcet="102" prio="1" offset="0" period="10000" deadline="10000"/>
+        </partition>
+        <partition id="1" name="Partition1" scheduler="FPPS">
+            <task id="4" name="Task4" wcet="103" prio="4" offset="0" period="10000" deadline="10000"/>
+            <task id="2" name="Task2" wcet="112" prio="2" offset="0" period="10000" deadline="10000"/>
+        </partition>
+        <window start="0" stop="52" partition="0"/>
+        <window start="52" stop="110" partition="1"/>
+        <window start="110" stop="229" partition="0"/>
+        <window start="229" stop="351" partition="1"/>
+        <window start="351" stop="489" partition="0"/>
+        <window start="489" stop="555" partition="1"/>
+        <window start="555" stop="615" partition="0"/>
+        <window start="615" stop="701" partition="1"/>
+        <window start="701" stop="829" partition="0"/>
+        <window start="829" stop="955" partition="1"/>
+        <window start="955" stop="1014" partition="0"/>
+        <window start="1014" stop="1070" partition="1"/>
+        <window start="1070" stop="1162" partition="0"/>
+        <window start="1162" stop="1221" partition="1"/>
+        <window start="1221" stop="1281" partition="0"/>
+        <window start="1281" stop="1379" partition="1"/>
+        <window start="1379" stop="1522" partition="0"/>
+        <window start="1522" stop="1583" partition="1"/>
+        <window start="1583" stop="1648" partition="0"/>
+        <window start="1648" stop="1747" partition="1"/>
+        <window start="1747" stop="1798" partition="0"/>
+        <window start="1798" stop="1888" partition="1"/>
+        <window start="1888" stop="1939" partition="0"/>
+        <window start="1939" stop="2072" partition="1"/>
+        <window start="2072" stop="2222" partition="0"/>
+        <window start="2222" stop="2309" partition="1"/>
+        <window start="2309" stop="2388" partition="0"/>
+        <window start="2388" stop="2464" partition="1"/>
+        <window start="2464" stop="2585" partition="0"/>
+        <window start="2585" stop="2723" partition="1"/>
+        <window start="2723" stop="2841" partition="0"/>
+        <window start="2841" stop="2972" partition="1"/>
+        <window start="2972" stop="3089" partition="0"/>
+        <window start="3089" stop="3228" partition="1"/>
+        <window start="3228" stop="3313" partition="0"/>
+        <window start="3313" stop="3454" partition="1"/>
+        <window start="3454" stop="3561" partition="0"/>
+        <window start="3561" stop="3677" partition="1"/>
+        <window start="3677" stop="3754" partition="0"/>
+        <window start="3754" stop="3893" partition="1"/>
+        <window start="3893" stop="3965" partition="0"/>
+        <window start="3965" stop="4095" partition="1"/>
+        <window start="4095" stop="4219" partition="0"/>
+        <window start="4219" stop="4361" partition="1"/>
+        <window start="4361" stop="4456" partition="0"/>
+        <window start="4456" stop="4556" partition="1"/>
+        <window start="4556" stop="4685" partition="0"/>
+        <window start="4685" stop="4740" partition="1"/>
+        <window start="4740" stop="4799" partition="0"/>
+        <window start="4799" stop="4870" partition="1"/>
+        <window start="4870" stop="4958" partition="0"/>
+        <window start="4958" stop="5019" partition="1"/>
+        <window start="5019" stop="5070" partition="0"/>
+        <window start="5070" stop="5195" partition="1"/>
+        <window start="5195" stop="5288" partition="0"/>
+        <window start="5288" stop="5433" partition="1"/>
+        <window start="5433" stop="5524" partition="0"/>
+        <window start="5524" stop="5659" partition="1"/>
+        <window start="5659" stop="5743" partition="0"/>
+        <window start="5743" stop="5818" partition="1"/>
+        <window start="5818" stop="5937" partition="0"/>
+        <window start="5937" stop="5990" partition="1"/>
+        <window start="5990" stop="6085" partition="0"/>
+        <window start="6085" stop="6194" partition="1"/>
+        <window start="6194" stop="6271" partition="0"/>
+        <window start="6271" stop="6335" partition="1"/>
+        <window start="6335" stop="6474" partition="0"/>
+        <window start="6474" stop="6566" partition="1"/>
+        <window start="6566" stop="6670" partition="0"/>
+        <window start="6670" stop="6818" partition="1"/>
+        <window start="6818" stop="6933" partition="0"/>
+        <window start="6933" stop="6994" partition="1"/>
+        <window start="6994" stop="7097" partition="0"/>
+        <window start="7097" stop="7183" partition="1"/>
+        <window start="7183" stop="7286" partition="0"/>
+        <window start="7286" stop="7427" partition="1"/>
+        <window start="7427" stop="7493" partition="0"/>
+        <window start="7493" stop="7553" partition="1"/>
+        <window start="7553" stop="7660" partition="0"/>
+        <window start="7660" stop="7768" partition="1"/>
+        <window start="7768" stop="7883" partition="0"/>
+        <window start="7883" stop="7995" partition="1"/>
+        <window start="7995" stop="8127" partition="0"/>
+        <window start="8127" stop="8236" partition="1"/>
+        <window start="8236" stop="8295" partition="0"/>
+        <window start="8295" stop="8358" partition="1"/>
+        <window start="8358" stop="8425" partition="0"/>
+        <window start="8425" stop="8563" partition="1"/>
+        <window start="8563" stop="8708" partition="0"/>
+        <window start="8708" stop="8830" partition="1"/>
+        <window start="8830" stop="8886" partition="0"/>
+        <window start="8886" stop="9030" partition="1"/>
+        <window start="9030" stop="9107" partition="0"/>
+        <window start="9107" stop="9220" partition="1"/>
+        <window start="9220" stop="9337" partition="0"/>
+        <window start="9337" stop="9445" partition="1"/>
+        <window start="9445" stop="9547" partition="0"/>
+        <window start="9547" stop="9627" partition="1"/>
+        <window start="9627" stop="9740" partition="0"/>
+        <window start="9740" stop="9842" partition="1"/>
+        <window start="9842" stop="9953" partition="0"/>
+        <window start="9953" stop="10000" partition="1"/>
+    </module>
+    <module major_frame="10000" name="Module1">
+        <partition id="0" name="Partition2" scheduler="FPPS">
+            <task id="9" name="Task9" wcet="114" prio="9" offset="0" period="10000" deadline="10000"/>
+            <task id="7" name="Task7" wcet="125" prio="7" offset="0" period="10000" deadline="10000"/>
+        </partition>
+        <partition id="1" name="Partition3" scheduler="FPPS">
+            <task id="5" name="Task5" wcet="122" prio="5" offset="0" period="10000" deadline="10000"/>
+            <task id="6" name="Task6" wcet="101" prio="6" offset="0" period="10000" deadline="10000"/>
+            <task id="8" name="Task8" wcet="102" prio="8" offset="0" period="10000" deadline="10000"/>
+        </partition>
+        <window start="0" stop="72" partition="0"/>
+        <window start="72" stop="210" partition="1"/>
+        <window start="210" stop="346" partition="0"/>
+        <window start="346" stop="454" partition="1"/>
+        <window start="454" stop="592" partition="0"/>
+        <window start="592" stop="699" partition="1"/>
+        <window start="699" stop="791" partition="0"/>
+        <window start="791" stop="892" partition="1"/>
+        <window start="892" stop="1019" partition="0"/>
+        <window start="1019" stop="1104" partition="1"/>
+        <window start="1104" stop="1227" partition="0"/>
+        <window start="1227" stop="1291" partition="1"/>
+        <window start="1291" stop="1401" partition="0"/>
+        <window start="1401" stop="1478" partition="1"/>
+        <window start="1478" stop="1622" partition="0"/>
+        <window start="1622" stop="1768" partition="1"/>
+        <window start="1768" stop="1853" partition="0"/>
+        <window start="1853" stop="1915" partition="1"/>
+        <window start="1915" stop="2046" partition="0"/>
+        <window start="2046" stop="2153" partition="1"/>
+        <window start="2153" stop="2233" partition="0"/>
+        <window start="2233" stop="2350" partition="1"/>
+        <window start="2350" stop="2429" partition="0"/>
+        <window start="2429" stop="2549" partition="1"/>
+        <window start="2549" stop="2693" partition="0"/>
+        <window start="2693" stop="2795" partition="1"/>
+        <window start="2795" stop="2850" partition="0"/>
+        <window start="2850" stop="2978" partition="1"/>
+        <window start="2978" stop="3068" partition="0"/>
+        <window start="3068" stop="3209" partition="1"/>
+        <window start="3209" stop="3356" partition="0"/>
+        <window start="3356" stop="3482" partition="1"/>
+        <window start="3482" stop="3617" partition="0"/>
+        <window start="3617" stop="3725" partition="1"/>
+        <window start="3725" stop="3833" partition="0"/>
+        <window start="3833" stop="3883" partition="1"/>
+        <window start="3883" stop="3975" partition="0"/>
+        <window start="3975" stop="4107" partition="1"/>
+        <window start="4107" stop="4162" partition="0"/>
+        <window start="4162" stop="4237" partition="1"/>
+        <window start="4237" stop="4387" partition="0"/>
+        <window start="4387" stop="4531" partition="1"/>
+        <window start="4531" stop="4630" partition="0"/>
+        <window start="4630" stop="4753" partition="1"/>
+        <window start="4753" stop="4835" partition="0"/>
+        <window start="4835" stop="4980" partition="1"/>
+        <window start="4980" stop="5042" partition="0"/>
+        <window start="5042" stop="5172" partition="1"/>
+        <window start="5172" stop="5275" partition="0"/>
+        <window start="5275" stop="5405" partition="1"/>
+        <window start="5405" stop="5530" partition="0"/>
+        <window start="5530" stop="5618" partition="1"/>
+        <window start="5618" stop="5694" partition="0"/>
+        <window start="5694" stop="5784" partition="1"/>
+        <window start="5784" stop="5851" partition="0"/>
+        <window start="5851" stop="5978" partition="1"/>
+        <window start="5978" stop="6059" partition="0"/>
+        <window start="6059" stop="6182" partition="1"/>
+        <window start="6182" stop="6238" partition="0"/>
+        <window start="6238" stop="6376" partition="1"/>
+        <window start="6376" stop="6467" partition="0"/>
+        <window start="6467" stop="6556" partition="1"/>
+        <window start="6556" stop="6637" partition="0"/>
+        <window start="6637" stop="6779" partition="1"/>
+        <window start="6779" stop="6840" partition="0"/>
+        <window start="6840" stop="6966" partition="1"/>
+        <window start="6966" stop="7085" partition="0"/>
+        <window start="7085" stop="7207" partition="1"/>
+        <window start="7207" stop="7357" partition="0"/>
+        <window start="7357" stop="7505" partition="1"/>
+        <window start="7505" stop="7616" partition="0"/>
+        <window start="7616" stop="7739" partition="1"/>
+        <window start="7739" stop="7804" partition="0"/>
+        <window start="7804" stop="7858" partition="1"/>
+        <window start="7858" stop="7997" partition="0"/>
+        <window start="7997" stop="8105" partition="1"/>
+        <window start="8105" stop="8255" partition="0"/>
+        <window start="8255" stop="8319" partition="1"/>
+        <window start="8319" stop="8403" partition="0"/>
+        <window start="8403" stop="8505" partition="1"/>
+        <window start="8505" stop="8647" partition="0"/>
+        <window start="8647" stop="8755" partition="1"/>
+        <window start="8755" stop="8900" partition="0"/>
+        <window start="8900" stop="9043" partition="1"/>
+        <window start="9043" stop="9117" partition="0"/>
+        <window start="9117" stop="9208" partition="1"/>
+        <window start="9208" stop="9280" partition="0"/>
+        <window start="9280" stop="9330" partition="1"/>
+        <window start="9330" stop="9397" partition="0"/>
+        <window start="9397" stop="9516" partition="1"/>
+        <window start="9516" stop="9659" partition="0"/>
+        <window start="9659" stop="9711" partition="1"/>
+        <window start="9711" stop="9840" partition="0"/>
+        <window start="9840" stop="9980" partition="1"/>
+        <window start="9980" stop="10000" partition="0"/>
+    </module>
+    <module major_frame="10000" name="Module2">
+        <partition id="0" name="Partition4" scheduler="FPPS">
+            <task id="13" name="Task13" wcet="117" prio="13" offset="0" period="10000" deadline="10000"/>
+        </partition>
+        <partition id="1" name="Partition5" scheduler="FPPS">
+            <task id="10" name="Task10" wcet="120" prio="10" offset="0" period="10000" deadline="10000"/>
+        </partition>
+        <partition id="2" name="Partition6" scheduler="FPPS">
+            <task id="12" name="Task12" wcet="123" prio="12" offset="0" period="10000" deadline="10000"/>
+            <task id="11" name="Task11" wcet="106" prio="11" offset="0" period="10000" deadline="10000"/>
+        </partition>
+        <partition id="3" name="Partition7" scheduler="FPPS">
+            <task id="14" name="Task14" wcet="104" prio="14" offset="0" period="10000" deadline="10000"/>
+        </partition>
+        <window start="0" stop="114" partition="0"/>
+        <window start="114" stop="237" partition="1"/>
+        <window start="237" stop="311" partition="2"/>
+        <window start="311" stop="363" partition="3"/>
+        <window start="363" stop="444" partition="0"/>
+        <window start="444" stop="542" partition="1"/>
+        <window start="542" stop="609" partition="2"/>
+        <window start="609" stop="719" partition="3"/>
+        <window start="719" stop="828" partition="0"/>
+        <window start="828" stop="904" partition="1"/>
+        <window start="904" stop="999" partition="2"/>
+        <window start="999" stop="1108" partition="3"/>
+        <window start="1108" stop="1162" partition="0"/>
+        <window start="1162" stop="1288" partition="1"/>
+        <window start="1288" stop="1339" partition="2"/>
+        <window start="1339" stop="1450" partition="3"/>
+        <window start="1450" stop="1531" partition="0"/>
+        <window start="1531" stop="1621" partition="1"/>
+        <window start="1621" stop="1736" partition="2"/>
+        <window start="1736" stop="1792" partition="3"/>
+        <window start="1792" stop="1916" partition="0"/>
+        <window start="1916" stop="2033" partition="1"/>
+        <window start="2033" stop="2166" partition="2"/>
+        <window start="2166" stop="2284" partition="3"/>
+        <window start="2284" stop="2358" partition="0"/>
+        <window start="2358" stop="2411" partition="1"/>
+        <window start="2411" stop="2528" partition="2"/>
+        <window start="2528" stop="2651" partition="3"/>
+        <window start="2651" stop="2781" partition="0"/>
+        <window start="2781" stop="2831" partition="1"/>
+        <window start="2831" stop="2890" partition="2"/>
+        <window start="2890" stop="3001" partition="3"/>
+        <window start="3001" stop="3148" partition="0"/>
+        <window start="3148" stop="3198" partition="1"/>
+        <window start="3198" stop="3268" partition="2"/>
+        <window start="3268" stop="3414" partition="3"/>
+        <window start="3414" stop="3550" partition="0"/>
+        <window start="3550" stop="3696" partition="1"/>
+        <window start="3696" stop="3833" partition="2"/>
+        <window start="3833" stop="3928" partition="3"/>
+        <window start="3928" stop="4036" partition="0"/>
+        <window start="4036" stop="4104" partition="1"/>
+        <window start="4104" stop="4179" partition="2"/>
+        <window start="4179" stop="4281" partition="3"/>
+        <window start="4281" stop="4348" partition="0"/>
+        <window start="4348" stop="4486" partition="1"/>
+        <window start="4486" stop="4616" partition="2"/>
+        <window start="4616" stop="4711" partition="3"/>
+        <window start="4711" stop="4797" partition="0"/>
+        <window start="4797" stop="4883" partition="1"/>
+        <window start="4883" stop="4975" partition="2"/>
+        <window start="4975" stop="5088" partition="3"/>
+        <window start="5088" stop="5227" partition="0"/>
+        <window start="5227" stop="5343" partition="1"/>
+        <window start="5343" stop="5425" partition="2"/>
+        <window start="5425" stop="5489" partition="3"/>
+        <window start="5489" stop="5631" partition="0"/>
+        <window start="5631" stop="5733" partition="1"/>
+        <window start="5733" stop="5878" partition="2"/>
+        <window start="5878" stop="6007" partition="3"/>
+        <window start="6007" stop="6149" partition="0"/>
+        <window start="6149" stop="6242" partition="1"/>
+        <window start="6242" stop="6374" partition="2"/>
+        <window start="6374" stop="6489" partition="3"/>
+        <window start="6489" stop="6550" partition="0"/>
+        <window start="6550" stop="6649" partition="1"/>
+        <window start="6649" stop="6758" partition="2"/>
+        <window start="6758" stop="6847" partition="3"/>
+        <window start="6847" stop="6968" partition="0"/>
+        <window start="6968" stop="7062" partition="1"/>
+        <window start="7062" stop="7176" partition="2"/>
+        <window start="7176" stop="7318" partition="3"/>
+        <window start="7318" stop="7404" partition="0"/>
+        <window start="7404" stop="7497" partition="1"/>
+        <window start="7497" stop="7560" partition="2"/>
+        <window start="7560" stop="7640" partition="3"/>
+        <window start="7640" stop="7702" partition="0"/>
+        <window start="7702" stop="7842" partition="1"/>
+        <window start="7842" stop="7892" partition="2"/>
+        <window start="7892" stop="7972" partition="3"/>
+        <window start="7972" stop="8049" partition="0"/>
+        <window start="8049" stop="8175" partition="1"/>
+        <window start="8175" stop="8314" partition="2"/>
+        <window start="8314" stop="8462" partition="3"/>
+        <window start="8462" stop="8524" partition="0"/>
+        <window start="8524" stop="8673" partition="1"/>
+        <window start="8673" stop="8778" partition="2"/>
+        <window start="8778" stop="8911" partition="3"/>
+        <window start="8911" stop="8991" partition="0"/>
+        <window start="8991" stop="9051" partition="1"/>
+        <window start="9051" stop="9128" partition="2"/>
+        <window start="9128" stop="9195" partition="3"/>
+        <window start="9195" stop="9323" partition="0"/>
+        <window start="9323" stop="9389" partition="1"/>
+        <window start="9389" stop="9527" partition="2"/>
+        <window start="9527" stop="9609" partition="3"/>
+        <window start="9609" stop="9758" partition="0"/>
+        <window start="9758" stop="9889" partition="1"/>
+        <window start="9889" stop="9994" partition="2"/>
+        <window start="9994" stop="10000" partition="3"/>
+    </module>
+    <module major_frame="10000" name="Module3">
+        <partition id="0" name="Partition8" scheduler="FPPS">
+            <task id="15" name="Task15" wcet="103" prio="15" offset="0" period="10000" deadline="10000"/>
+            <task id="16" name="Task16" wcet="108" prio="16" offset="0" period="10000" deadline="10000"/>
+            <task id="17" name="Task17" wcet="110" prio="17" offset="0" period="10000" deadline="10000"/>
+            <task id="18" name="Task18" wcet="107" prio="18" offset="0" period="10000" deadline="10000"/>
+            <task id="19" name="Task19" wcet="122" prio="19" offset="0" period="10000" deadline="10000"/>
+        </partition>
+        <window start="0" stop="10000" partition="0"/>
+    </module>
+    <link src="15" dst="16" delay="8"/>
+    <link src="16" dst="17" delay="7"/>
+    <link src="16" dst="18" delay="5"/>
+    <link src="16" dst="19" delay="6"/>
+    <link src="10" dst="11" delay="10"/>
+    <link src="12" dst="13" delay="3"/>
+    <link src="13" dst="14" delay="0"/>
+    <link src="13" dst="5" delay="6"/>
+    <link src="5" dst="6" delay="10"/>
+    <link src="6" dst="7" delay="6"/>
+    <link src="7" dst="8" delay="5"/>
+    <link src="7" dst="9" delay="3"/>
+    <link src="7" dst="0" delay="5"/>
+    <link src="7" dst="1" delay="7"/>
+    <link src="1" dst="2" delay="2"/>
+    <link src="1" dst="3" delay="5"/>
+    <link src="3" dst="4" delay="7"/>
+</system>

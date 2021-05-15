@@ -36,3 +36,9 @@ add_executable(generator_lb
   src/tinyxml2.cpp
   src/tinyxml2.h
 )
+
+add_executable(dec_bcet
+  src/dec_bcet.cpp
+  src/tinyxml2.cpp
+  src/tinyxml2.h
+)

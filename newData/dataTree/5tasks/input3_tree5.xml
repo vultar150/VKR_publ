@@ -1,0 +1,121 @@
+<system>
+    <partition id="0" proc="0" maj_fr="10000">
+        <task id="2" prio="2" bcet="65" wcet="289" period="10000" deadline="10000"/>
+        <task id="0" prio="0" bcet="82" wcet="317" period="10000" deadline="10000"/>
+        <task id="1" prio="1" bcet="67" wcet="339" period="10000" deadline="10000"/>
+        <window start="0" stop="10000"/>
+    </partition>
+    <partition id="1" proc="1" maj_fr="10000">
+        <task id="5" prio="5" bcet="59" wcet="262" period="10000" deadline="10000"/>
+        <window start="0" stop="50"/>
+        <window start="208" stop="296"/>
+        <window start="556" stop="652"/>
+        <window start="860" stop="975"/>
+        <window start="1119" stop="1219"/>
+        <window start="1434" stop="1545"/>
+        <window start="1734" stop="1824"/>
+        <window start="2080" stop="2215"/>
+        <window start="2371" stop="2447"/>
+        <window start="2640" stop="2765"/>
+        <window start="2928" stop="3015"/>
+        <window start="3139" stop="3218"/>
+        <window start="3487" stop="3611"/>
+        <window start="3818" stop="3935"/>
+        <window start="4117" stop="4260"/>
+        <window start="4470" stop="4535"/>
+        <window start="4746" stop="4825"/>
+        <window start="5077" stop="5166"/>
+        <window start="5396" stop="5460"/>
+        <window start="5667" stop="5740"/>
+        <window start="5942" stop="6042"/>
+        <window start="6227" stop="6278"/>
+        <window start="6470" stop="6541"/>
+        <window start="6687" stop="6790"/>
+        <window start="6998" stop="7139"/>
+        <window start="7323" stop="7441"/>
+        <window start="7709" stop="7823"/>
+        <window start="8056" stop="8174"/>
+        <window start="8373" stop="8499"/>
+        <window start="8757" stop="8864"/>
+        <window start="9004" stop="9111"/>
+        <window start="9381" stop="9478"/>
+        <window start="9684" stop="9828"/>
+        <window start="9974" stop="10000"/>
+    </partition>
+    <partition id="2" proc="1" maj_fr="10000">
+        <task id="3" prio="3" bcet="53" wcet="216" period="10000" deadline="10000"/>
+        <window start="50" stop="145"/>
+        <window start="296" stop="426"/>
+        <window start="652" stop="723"/>
+        <window start="975" stop="1048"/>
+        <window start="1219" stop="1310"/>
+        <window start="1545" stop="1625"/>
+        <window start="1824" stop="1960"/>
+        <window start="2215" stop="2314"/>
+        <window start="2447" stop="2497"/>
+        <window start="2765" stop="2858"/>
+        <window start="3015" stop="3082"/>
+        <window start="3218" stop="3360"/>
+        <window start="3611" stop="3710"/>
+        <window start="3935" stop="4000"/>
+        <window start="4260" stop="4409"/>
+        <window start="4535" stop="4663"/>
+        <window start="4825" stop="4969"/>
+        <window start="5166" stop="5299"/>
+        <window start="5460" stop="5533"/>
+        <window start="5740" stop="5845"/>
+        <window start="6042" stop="6093"/>
+        <window start="6278" stop="6384"/>
+        <window start="6541" stop="6598"/>
+        <window start="6790" stop="6900"/>
+        <window start="7139" stop="7199"/>
+        <window start="7441" stop="7575"/>
+        <window start="7823" stop="7921"/>
+        <window start="8174" stop="8253"/>
+        <window start="8499" stop="8625"/>
+        <window start="8864" stop="8933"/>
+        <window start="9111" stop="9236"/>
+        <window start="9478" stop="9557"/>
+        <window start="9828" stop="9902"/>
+    </partition>
+    <partition id="3" proc="1" maj_fr="10000">
+        <task id="4" prio="4" bcet="93" wcet="350" period="10000" deadline="10000"/>
+        <window start="145" stop="208"/>
+        <window start="426" stop="556"/>
+        <window start="723" stop="860"/>
+        <window start="1048" stop="1119"/>
+        <window start="1310" stop="1434"/>
+        <window start="1625" stop="1734"/>
+        <window start="1960" stop="2080"/>
+        <window start="2314" stop="2371"/>
+        <window start="2497" stop="2640"/>
+        <window start="2858" stop="2928"/>
+        <window start="3082" stop="3139"/>
+        <window start="3360" stop="3487"/>
+        <window start="3710" stop="3818"/>
+        <window start="4000" stop="4117"/>
+        <window start="4409" stop="4470"/>
+        <window start="4663" stop="4746"/>
+        <window start="4969" stop="5077"/>
+        <window start="5299" stop="5396"/>
+        <window start="5533" stop="5667"/>
+        <window start="5845" stop="5942"/>
+        <window start="6093" stop="6227"/>
+        <window start="6384" stop="6470"/>
+        <window start="6598" stop="6687"/>
+        <window start="6900" stop="6998"/>
+        <window start="7199" stop="7323"/>
+        <window start="7575" stop="7709"/>
+        <window start="7921" stop="8056"/>
+        <window start="8253" stop="8373"/>
+        <window start="8625" stop="8757"/>
+        <window start="8933" stop="9004"/>
+        <window start="9236" stop="9381"/>
+        <window start="9557" stop="9684"/>
+        <window start="9902" stop="9974"/>
+    </partition>
+    <tlink src="3" dist="4" bctt="1" wctt="1"/>
+    <tlink src="3" dist="5" bctt="0" wctt="0"/>
+    <tlink src="3" dist="0" bctt="0" wctt="2"/>
+    <tlink src="1" dist="2" bctt="0" wctt="1"/>
+</system>

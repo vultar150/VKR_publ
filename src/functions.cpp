@@ -380,7 +380,7 @@ void computeTimeBounds(std::vector<Task*> & sortedQueue) {
     bool changed;
     do {
         changed = false;
-        std::cerr << "===" << i << "===" << std::endl;
+        // std::cerr << "===" << i << "===" << std::endl;
         for (auto & t : sortedQueue) {
             if (t->_isMessage) {
                 minA(t, changed);
