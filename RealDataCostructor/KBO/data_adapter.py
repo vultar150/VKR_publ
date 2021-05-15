@@ -40,9 +40,13 @@ def pop(name):
     for task in tasks:
         task_id = int(task.getAttribute("id"))
         # wcet = rand.randint(1, maj_fr//50)
-        wcet = rand.randint(1, maj_fr//200)
-        bcet = int(wcet/10)
-        wcet = int(2*wcet)
+        wcet = rand.randint(200, 300)
+        # wcet = rand.randint(1, maj_fr//50)
+        bcet = int(wcet/2)
+        
+        # wcet = rand.randint(1, maj_fr//200)
+        # bcet = int(wcet/10)
+        # wcet = int(2*wcet)
         prio = int(task.getAttribute("prio"))
         corenum = int(task.getAttribute("proc"))
         deadline = period

@@ -16,9 +16,9 @@ class Task:
     def __init__(self,HW,id3,pr):
         self.id = id3
         self.proc = HW
-        b = prob(1,10)
+        b = prob(50,100)
         # w = prob(10,200)
-        w = prob(10,50)
+        w = prob(200,400)
         if b>w:
             w,b = b,w
         self.bcet = b
@@ -99,10 +99,15 @@ def push(name,tree,mass):
     return None
 
 Core = dict()
-numcore = prob(1,20)
+numcore = 2
+# numcore = prob(3,7)
+# cores_num = rand.randint(3, 7)
+# cores_num = rand.randint(5, 20)
+# cores_num = rand.randint(10, 40)
 ind = 0
 for j in range(numcore):
-    HM = prob(1,20)
+    HM = 3
+    # HM = prob(1,20)
     Core[j] = core(j,HM,ind)
     ind += HM
 Tree = dict()

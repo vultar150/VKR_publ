@@ -14,12 +14,13 @@ node = {}
 name = "data.xml"
 f = open(name,'w')
 f.write("<system>\n")
-k = rand.randint(1, 20)
-# k = 12
-cores_num = rand.randint(1, 20)
+# k = rand.randint(1, 20)
+k = 2
+cores_num = rand.randint(3, 7)
 # cores_num = rand.randint(5, 20)
 # cores_num = rand.randint(10, 40)
 task_num = 9*k -7
+# task_num = 5
 for i in range(0, task_num):
     node[i] = Node()
 node_num = k
